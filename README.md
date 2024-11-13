@@ -1,5 +1,5 @@
 # `flic`
-## FORTH language inspired (byte)code
+## FORTH Language Inspired (byte)Code
 
 (c) Dmitry Ponyatov <<dponyatov@gmail.com>> 2020 MIT
 
