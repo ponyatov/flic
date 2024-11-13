@@ -1,11 +1,19 @@
 TARGET = arm-none-eabi
 APT   += gcc-$(TARGET) gdb-multiarch stlink-tools
 
+# cross-compiler
+TCC   = $(TARGET)-gcc
+TXX   = $(TARGET)-g++
+TDUMP = $(TARGET)-objdump
+TSIZE = $(TARGET)-size
+TCOPY = $(TARGET)-objcopy
+
 # tool: CubeMX binary path
 CUBEMX ?= $(HOME)/STM32/CubeMX/STM32CubeMX
 GZ     += $(CUBEMX)
 
 # run make cubemx
+.PHONY: cubemx
 cubemx: $(CUBEMX)
 	$<
 
@@ -13,8 +21,10 @@ cubemx: $(CUBEMX)
 CUBE_SDIR  = tmp/cubemx
 CUBE_SETUP = SetupSTM32CubeMX-$(subst -,.,$(CUBEMX_VER))
 
-$(CUBEMX): $(CUBE_SDIR)/$(CUBE_SETUP)
-	echo $@ $<
+GZ += $(CUBEMX)
+$(CUBEMX):
+	$(MAKE) $(CUBE_SDIR)/$(CUBE_SETUP)
+	$(CUBE_SDIR)/$(CUBE_SETUP)
 
 $(CUBE_SDIR)/$(CUBE_SETUP): $(CROSS)/$(CUBEMX_GZ)
 	unzip -d $(CUBE_SDIR) $< && touch $@

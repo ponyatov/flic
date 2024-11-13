@@ -1,1 +1,1 @@
-ARCH = CortexM4
+ARCH = CortexL4
