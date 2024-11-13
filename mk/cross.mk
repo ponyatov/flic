@@ -2,10 +2,12 @@
 HWINFO = tmp/hw.info
 ifneq (,$(wildcard $(HWINFO)))
 	include  $(HWINFO)
+	ifneq (,$(DESCR))
 	include   hw/$(DESCR)_$(CHIPID).mk
 	include   hw/$(HW).mk
 	include  cpu/$(CPU).mk
 	include arch/$(ARCH).mk
+	endif
 else
 .PHONY: info
 info: $(HWINFO)
