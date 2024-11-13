@@ -1,1 +1,1 @@
-GZ = $(HOME)/distr/cross
+CROSS = $(HOME)/distr/cross
