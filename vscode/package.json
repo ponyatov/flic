@@ -1,6 +1,6 @@
 {
     "name":        "flic",
-    "displayName": "FORTH/MCU",
+    "displayName": "flic",
     "description": "FORTH Language Inspired (byte)Code",
     "version":     "0.0.1",
     "icon":        "flic.png",
