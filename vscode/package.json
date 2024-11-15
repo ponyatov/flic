@@ -1,0 +1,85 @@
+{
+    "name":        "flic",
+    "displayName": "FORTH/MCU",
+    "description": "FORTH Language Inspired (byte)Code",
+    "version":     "0.0.1",
+    "icon":        "flic.png",
+    "publisher":   "dponyatov",
+    "license":     "MIT",
+    "engines": {
+        "vscode": "^1.75.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "CLI", "FORTH", "REPL", "OS", "script", "interpreter", "embedded", "MCU"
+    ],
+    "bugs": {
+        "url": "https://gitflic.ru/project/dponyatov/flic/issue"
+    },
+    "homepage": "https://gitflic.ru/project/dponyatov/flic",
+    "repository": {
+        "type": "git",
+        "url" : "https://gitflic.ru/project/dponyatov/flic/issue/tree/dponyatov/vscode"
+    },
+    "activationEvents": [
+        "workspaceContains:lib/*.ini",
+        "workspaceContains:lib/*.s"
+    ],
+    "extensionDependencies": [
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "grammars": [{
+            "language": "flic",
+            "scopeName": "source.flic",
+            "path": "./flic.tmLanguage.json"
+        }],
+        "commands": [
+            {
+                "command": "flic.hello",
+                "title": "flic: Hello World"
+            },
+            {
+                "command": "flic.repl",
+                "title": "flic: REPL"
+            }
+        ],
+        "keybindings": [{
+            "key": "ctrl+enter",
+            "command": "flic.repl",
+            "when": "editorTextFocus && editorLangId == 'flic'"
+        }],
+        "languages": [{
+            "id": "flic",
+            "extensions": [".ini", ".s"],
+            "configuration": "./flic.languageConfiguration.json"
+        }],
+        "configuration": {
+            "title": "flic",
+            "properties": {
+                "flic.Path": {
+                    "type": "string",
+                    "default": "${workspaceFolder}",
+                    "description": "%ext.configuration.Path%"
+                }}
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "make extension",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "package": "vsce package --baseImagesUrl https://gitflic.ru/project/dponyatov/flic/issue/tree/dponyatov/vscode/",
+        "lint": "eslint src --ext ts",
+        "test": "vscode-test"
+    },
+    "dependencies": {
+        "vscode-nls": "^5.2.0"
+    },
+    "devDependencies": {
+        "vscode-nls-dev": "^4.0.4",
+        "vscode": "1.1.x"
+    }
+}
