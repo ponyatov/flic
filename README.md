@@ -1,4 +1,4 @@
-# `flic`
+# ![logo](vscode/flic.png) `flic`
 ## FORTH Language Inspired (byte)Code
 
 (c) Dmitry Ponyatov <<dponyatov@gmail.com>> 2020 MIT

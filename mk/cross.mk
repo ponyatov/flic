@@ -14,8 +14,10 @@ $(HWINFO):
 	echo "DESCR  ?= $(DESCR)"                   >> $@
 else
 
+ifneq ($(HW),_)
 include      $(HWINFO)
 include   hw/$(DESCR)_$(CHIPID).mk
+endif
 include   hw/$(HW).mk
 include  cpu/$(CPU).mk
 include arch/$(ARCH).mk

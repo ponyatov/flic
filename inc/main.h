@@ -5,6 +5,7 @@
 /// @defgroup libc libc
 /// @brief standard C/C++ headers
 /// @{
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

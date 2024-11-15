@@ -1,5 +1,5 @@
 # doc
-LOGO = doc/logo.png
+LOGO = vscode/$(MODULE).png
 .PHONY: doxy
 doxy: .doxygen doc/DoxygenLayout.xml $(LOGO)
 	rm -rf doc/html ; doxygen $< 1>/dev/null
