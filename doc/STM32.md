@@ -1,0 +1,27 @@
+# STM32
+
+```shell
+HW=STM32F4DISCOVERY make flash
+```
+
+## STM32F0
+- @ref pillF030
+
+## STM32F1
+- @ref STM32VLDISCOVERY
+- @ref pillF103
+
+## STM32F2
+- @ref STM32F205
+- @ref STM32F207
+
+## STM32F3
+- @ref STM32F3DISCOVERY
+
+## STM32F4
+- @ref STM32F407G-DISC1
+    - @ref STM32F4DISCOVERY
+
+## STM32L4
+- @ref STM32L496G-DISCO
+    - @ref STM32L496GDISCOVERY
