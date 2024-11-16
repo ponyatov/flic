@@ -1,4 +1,5 @@
-#pragma none
+#ifndef FLIC_H_
+#define FLIC_H_
 
 /// @defgroup lib lib
 /// @{
@@ -6,6 +7,7 @@
 /// @brief standard C/C++ headers
 /// @{
 #include <stdint.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -22,7 +24,7 @@
 #ifdef __linux__
 int main(int argc, char *argv[]);
 #else
-int flic(int argc, char *argv[]);
+void flic(int argc, char *argv[]);
 #endif
 
 /// @brief print command line argument
@@ -31,3 +33,5 @@ int flic(int argc, char *argv[]);
 void arg(int argc, char *argv);
 
 /// @}
+
+#endif  // FLIC_H_

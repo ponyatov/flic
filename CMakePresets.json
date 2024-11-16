@@ -22,6 +22,19 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/${presetName}",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
+        },
+        {
+            "name": "stm32f4",
+            "displayName": "arm-none-eabi-gcc / cortexM4",
+            "description": "cross-compile for MCU",
+            "binaryDir": "${sourceDir}/tmp/${presetName}",
+            "toolchainFile": "${sourceDir}/cmake/arm-none-eabi-gcc.cmake",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/${presetName}",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "HW": "STM32F407G-DISC1", "CPU": "STM32F407VGT",
+                "CMAKE_VERBOSE_MAKEFILE": "ON"
+            }
         }
     ]
 }

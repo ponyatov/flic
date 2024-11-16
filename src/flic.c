@@ -2,10 +2,10 @@
 
 #ifdef __linux__
 int main(int argc, char *argv[]) {  //
-#elif _WIN32
-int main(int argc, char *argv[]) {  //
+// #ifdef _WIN32
+// int main(int argc, char *argv[]) {  //
 #else
-int flic(int argc, char *argv[]) {  //
+void flic(int argc, char *argv[]) {  //
 #endif
     arg(0, argv[0]);
     for (int i = 1; i < argc; i++) {  //
