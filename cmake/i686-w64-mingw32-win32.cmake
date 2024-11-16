@@ -11,7 +11,8 @@ set(CMAKE_CXX_COMPILER ${TOOLCHAIN_PREFIX}-g++-win32)
 set(CMAKE_RC_COMPILER  ${TOOLCHAIN_PREFIX}-windres)
 # set(CMAKE_MC_COMPILER  ${TOOLCHAIN_PREFIX}-windmc)
 
-# add_definitions(-mconsole)
+add_definitions(-mconsole)
+# set(CMAKE_AUTORCC ON)
 
 # target environment on the build host system
 #   set 1st to dir with the cross compiler's C/C++ headers/libs
