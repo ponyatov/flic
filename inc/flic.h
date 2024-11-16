@@ -16,10 +16,10 @@
 /// @brief program entry point
 /// @{
 
-/// @brief program entry point (POSIX)
+/// @brief program entry point (POSIX/MCU)
 /// @param[in] argc index (0 = program executable file)
 /// @param[in] argv command line argument
-#ifdef 
+#ifdef __linux__
 int main(int argc, char *argv[]);
 #else
 int flic(int argc, char *argv[]);
