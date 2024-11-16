@@ -35,8 +35,5 @@ BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.c)
 
 add_library(parser STATIC ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS})
 
-file(GLOB rc CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/res/*.rc)
-get_filename_component(robj ${rc} NAME_WE)
-
 add_executable(${PROJECT_NAME} ${C})
 target_link_libraries(${PROJECT_NAME} parser)
