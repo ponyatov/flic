@@ -33,20 +33,10 @@ message(Y=${Y})
  FLEX_TARGET(lex  ${L} ${TMP}/${lex}.lexer.c)
 BISON_TARGET(yacc ${Y} ${TMP}/${yacc}.parser.c)
 
-add_executable(${PROJECT_NAME} ${C})
-
 add_library(parser STATIC ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS})
-target_link_libraries(${PROJECT_NAME} parser)
 
 file(GLOB rc CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/res/*.rc)
 get_filename_component(robj ${rc} NAME_WE)
 
-add_custom_command(
-TARGET ${PROJECT_NAME}
-PRE_BUILD
-DEPENDS ${CMAKE_RC_COMPILER}
-COMMAND ${CMAKE_RC_COMPILER} ${rc} ${TMP}/${robj}.rc.o
-WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/res"
-COMMENT "Build step to produce the icon file"
-add_executable(${PROJECT_NAME} ${TMP}/${robj}.rc.o)
-)
+add_executable(${PROJECT_NAME} ${C})
+target_link_libraries(${PROJECT_NAME} parser)

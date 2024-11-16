@@ -24,3 +24,13 @@ set(CMAKE_FIND_ROOT_PATH /usr/${TOOLCHAIN_PREFIX})
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+# add_custom_command(
+# TARGET ico
+# PRE_BUILD
+# DEPENDS ${CMAKE_RC_COMPILER}
+# COMMAND ${CMAKE_RC_COMPILER} ${rc} ${TMP}/${robj}.rc.obj
+# WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/res"
+# COMMENT "Build step to produce the icon file"
+# add_executable(ico ${TMP}/${robj}.rc.obj)
+# )
