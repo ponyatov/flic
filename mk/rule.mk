@@ -2,7 +2,7 @@
 
 OBJ += $(patsubst $(SRC)/%.c,$(TMP)/%.o,$(C))
 
-bin/$(MODULE): $(OBJ)
+bin/$(MODULE)_$(HW): $(OBJ)
 	$(TCC) $(TLFLAGS) -o $@ $^ $(L)
 
 $(TMP)/%.o: $(TMP)/%.c $(H)
@@ -10,6 +10,11 @@ $(TMP)/%.o: $(TMP)/%.c $(H)
 $(TMP)/%.o: $(SRC)/%.c $(H)
 	$(TCC) $(TCFLAGS) -o $@ -c $<
 
+# arch/CortexM
+$(TMP)/core_%.o: $(CORE)/Src/%.c $(H)
+	$(TCC) $(TCFLAGS) -o $@ -c $<
+
+# parser
 ifeq ($(OS),Linux)
 $(TMP)/%.lexer.c: $(SRC)/%.lex
 	flex -o $@ $<

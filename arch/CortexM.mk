@@ -2,6 +2,15 @@ TARGET = arm-none-eabi
 APT   += gcc-$(TARGET) gdb-multiarch stlink-tools dfu-util qemu-system-arm
 OS    ?= _
 
+# arch/CortexM
+CORE     = $(CWD)/cubemx/$(HW)/Core
+TCFLAGS += -I$(CORE)/Inc
+OBJ     += $(patsubst $(CORE)/Src/%.c,$(TMP)/core_%.o,$(wildcard $(CORE)/Src/*.c*))
+
+CMSIS = $(CWD)/cubemx/STM32F407G-DISC1/Drivers/CMSIS
+TCFLAGS += -I$(CMSIS)/Device/ST/STM32F4xx/Include
+TCFLAGS += -I$(CMSIS)/Include
+
 TCFLAGS += -mthumb
 
 TLFLAGS += --specs=nano.specs

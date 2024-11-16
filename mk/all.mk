@@ -1,6 +1,6 @@
 .PHONY: all run
-all: bin/$(MODULE) $(F)
-run: bin/$(MODULE) $(F)
+all: bin/$(MODULE)_$(HW) $(F)
+run: bin/$(MODULE)_$(HW) $(F)
 	$^
 
 .PHONY: cpp
