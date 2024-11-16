@@ -13,5 +13,7 @@ jobs:
   my-job:
     runs-on: debian-12
     steps:
-      - name: my-step
+      - name: my-step1
         run: echo "Hello World!"
+      - name: my-step2
+        run: echo "Hello World again!"
