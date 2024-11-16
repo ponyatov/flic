@@ -2,7 +2,7 @@
 /// @ingroup config
 /// @{
 
-#include "main.h"
+#include "flic.h"
 
 /// main memory size (64K limit)
 #define Msz 0x1000

@@ -1,6 +1,8 @@
-#include "main.h"
+#include "flic.h"
 
 #ifdef __linux__
+int main(int argc, char *argv[]) {  //
+#elif _WIN32
 int main(int argc, char *argv[]) {  //
 #else
 int flic(int argc, char *argv[]) {  //
