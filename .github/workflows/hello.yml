@@ -15,7 +15,7 @@ defaults:
 
 jobs:
   my-job:
-    runs-on: debian-12
+    runs-on: ubuntu-latest
     steps:
       - name: my-step1
         run: echo "Hello World!"
