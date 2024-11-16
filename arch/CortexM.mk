@@ -2,6 +2,15 @@ TARGET = arm-none-eabi
 APT   += gcc-$(TARGET) gdb-multiarch stlink-tools dfu-util qemu-system-arm
 OS    ?= _
 
+TCFLAGS += -mthumb
+
+TLFLAGS += --specs=nano.specs
+TLFLAGS += -Wl,-Map=$(BIN)/$(MODULE)_$(HW).map -Wl,--gc-sections
+TLFLAGS += -Wl,--start-group -lc -lm -Wl,--end-group
+
+# TXFLAGS += -fno-rtti -fno-exceptions
+# TLFLAGS += -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group"
+
 # tool: CubeMX binary path
 CUBEMX ?= $(HOME)/STM32/CubeMX/STM32CubeMX
 
