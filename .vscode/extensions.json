@@ -8,6 +8,7 @@
         "ms-vscode-remote.remote-ssh",
         // "coolbear.systemd-unit-file",
         // "github.vscode-github-actions",
+        "redhat.vscode-yaml",
         // formatters
         "xaver.clang-format",
         "foxundermoon.shell-format",

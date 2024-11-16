@@ -1,0 +1,17 @@
+# https://gist.github.com/weibeld/f136048d0a82aacc063f42e684e3c494
+
+name: hello
+
+on:
+  push:
+    branches: [ 'dponyatov' ]
+
+permissions:
+  contents: read
+
+jobs:
+  my-job:
+    runs-on: debian-12
+    steps:
+      - name: my-step
+        run: echo "Hello World!"
