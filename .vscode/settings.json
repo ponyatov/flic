@@ -27,7 +27,8 @@
     },
     "files.associations": {
         "lib/*.ini": "flic", "lib/.f": "flic",
-        "*.mk": "makefile", "*.info": "makefile"
+        "*.mk": "makefile", "*.info": "makefile",
+        "*.ioc": "ini"
     },
 
     // editor
