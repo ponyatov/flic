@@ -1,0 +1,27 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "host",
+            "displayName": "host: GCC 12.2.0 x86_64-linux-gnu",
+            "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
+            "binaryDir": "${sourceDir}/tmp/${presetName}",
+            "toolchainFile": "${sourceDir}/cmake/x86_64-linux-gnu.cmake",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/${presetName}",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "win32",
+            "displayName": "GCC 12-win32 i686-w64-mingw32",
+            "description": "retro Windows x32 cross-compiling",
+            "binaryDir": "${sourceDir}/tmp/${presetName}",
+            "toolchainFile": "${sourceDir}/cmake/i686-w64-mingw32-win32.cmake",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/${presetName}",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ]
+}
