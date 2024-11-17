@@ -21,6 +21,7 @@
     // files
     "files.exclude": {
         "docs/**": true,
+        "doc/html/**": true,
     },
     "files.watcherExclude": {
         "ref/**": true,
