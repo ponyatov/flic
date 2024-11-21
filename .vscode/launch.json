@@ -13,6 +13,7 @@
             "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
             "toolchainPrefix": "arm-none-eabi",
             "gdbPath": "/usr/bin/gdb-multiarch",
+            "gdbTarget": "localhost:12345",
             "overrideLaunchCommands": [
                 "target remote :12345",
                 "file ${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
