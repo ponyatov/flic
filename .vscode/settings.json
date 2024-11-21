@@ -81,6 +81,10 @@
 		// "args": ["${workspaceFolder}/lib/${workspaceFolderBasename}.ini"]},
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
+    // openocd
+    "cortex-debug.armToolchainPath": "/usr/bin",
+    "cortex-debug.openocdPath": "/usr/bin/openocd"
+
     // // ESP32
     // "idf.adapterTargetName": "esp32",
     // "idf.pythonBinPath": "${env:IDF_PYTHON_ENV_PATH}/bin/python3",
