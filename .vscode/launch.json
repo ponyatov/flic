@@ -11,20 +11,14 @@
             "request": "launch",
             "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
             "toolchainPrefix": "arm-none-eabi",
-        //     // "preLaunchTask": "espruino: STM32F4DISCOVERY",
-        //     "svdFile": "${userHome}/stm32/hw/svd/stm32f4/STM32F407.svd",
-        //     "runToEntryPoint": "Reset_Handler",
-        //     "postLaunchCommands": [ "interrupt" ],
+            // "preLaunchTask": "espruino: STM32F4DISCOVERY",
+            // "svdFile": "${userHome}/stm32/hw/svd/stm32f4/STM32F407.svd",
+            // "runToEntryPoint": "Reset_Handler",
             "configFiles": [
-                "interface/stlink-v2.cfg",
-                "target/stm32f4x.cfg",
-            ],
-            "openOCDLaunchCommands": [
-                "transport select hla_swd",
-                "adapter speed 2000",
-                "gdb_port 12345"
+                "openocd.cfg"
             ]
-            ,"showDevDebugOutput": "raw"
+            // ,"gdbTarget": "localhost:12345"
+            // ,"showDevDebugOutput": "raw"
         }
     ]
 }
