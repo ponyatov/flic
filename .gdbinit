@@ -1,11 +1,6 @@
-monitor reset halt
+target extended-remote :12345
+# load
 b Reset_Handler
 b main
-# set startup-quietly on
-# set height 0
-# set pagination off
-target extended-remote :3333
-# b Reset_Handler
-# b main
-# mon reset halt
-# c
+monitor reset halt
+c

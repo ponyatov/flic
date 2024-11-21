@@ -24,3 +24,8 @@ endif
 
 $(TMP)/%.c: $(SRC)/%.ragel
 	ragel -G2 -o $@ $<
+
+%.hex: %.elf
+	$(TARGET)-objcopy -O ihex $< $@
+%.bin: %.elf
+	$(TARGET)-objcopy -O binary $< $@

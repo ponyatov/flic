@@ -20,34 +20,33 @@ CPU     = STM32F407VGT
 FLASH   = 0x08000000
 GDBPORT = 12345
 
-REF += hw/svd/README.md
-hw/svd/README.md:
-	$(GITREF) https://github.com/ponyatov/cmsis-svd-stm32.git hw/svd
+# REF += hw/svd/README.md
+# hw/svd/README.md:
+# 	$(GITREF) https://github.com/ponyatov/cmsis-svd-stm32.git hw/svd
 
 
-.PHONY: disco
-disco:
-	rm -rf $(TMP)/$(HW)
-	$(CMAKE) -DCMAKE_VERBOSE_MAKEFILE=ON \
-		-S$(CWD) -B$(TMP)/$(HW) --preset=$(HW)
-	$(CMAKE) --build $(TMP)/$(HW)
+# .PHONY: disco
+# disco:
+# 	rm -rf $(TMP)/$(HW)
+# 	$(CMAKE) -DCMAKE_VERBOSE_MAKEFILE=ON \
+# 		-S$(CWD) -B$(TMP)/$(HW) --preset=$(HW)
+# 	$(CMAKE) --build $(TMP)/$(HW)
 
 .PHONY: openocd
-openocd: tmp/$(HW)/$(MODULE).hex
-	$@ -f hw/$(HW).openocd -c "program $< verify reset"
-# -f interface/stlink-v2.cfg -f target/stm32f4x.cfg 
+openocd: $(TMP)/$(HW)/$(MODULE).hex
+	$@
 
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
-	$@-multiarch -q -x .gdbinit tmp/$(HW)/$(MODULE).elf
+	$@-multiarch -q -x .gdbinit $<
 
-.PHONY: flash
-flash: $(TMP)/$(HW)/$(MODULE).bin
-	st-flash --connect-under-reset write $< $(FLASH)
-%.bin: %.elf
-	arm-none-eabi-objcopy -O binary $< $@
+# .PHONY: flash
+# flash: $(TMP)/$(HW)/$(MODULE).bin
+# 	st-flash --connect-under-reset write $< $(FLASH)
+# %.bin: %.elf
+# 	arm-none-eabi-objcopy -O binary $< $@
 
 .PHONY: hex
 hex: tmp/$(HW)/$(MODULE).hex
-%.hex: %.elf
-	arm-none-eabi-objcopy -I ihex $< $@
+.PHONY: bin
+bin: tmp/$(HW)/$(MODULE).bin
