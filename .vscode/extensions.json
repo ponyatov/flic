@@ -5,10 +5,10 @@
         "tabnine.tabnine-vscode",
         "ms-vscode.makefile-tools",
         // Linux
-        "ms-vscode-remote.remote-ssh",
+        // "ms-vscode-remote.remote-ssh",
         // "coolbear.systemd-unit-file",
         // "github.vscode-github-actions",
-        "redhat.vscode-yaml",
+        // "redhat.vscode-yaml",
         // formatters
         "xaver.clang-format",
         "foxundermoon.shell-format",
@@ -21,20 +21,22 @@
         "ms-vscode.cmake-tools",
         "twxs.cmake",
         // parser
-        "daohong-emilio.yash",
-        "rreverser.ragel",
+        // "daohong-emilio.yash",
+        // "rreverser.ragel",
         // embedded
-        "stmicroelectronics.stm32-vscode-extension",
-        "dan-c-underwood.arm",
-        "marus25.cortex-debug",
-        "ms-vscode.hexeditor",
-        "mcu-debug.peripheral-viewer",
-        "mcu-debug.rtos-views",
-        "mcu-debug.memory-view",
         "zixuanwang.linkerscript",
         "trond-snekvik.gnu-mapfiles",
+        // ???
+        // "stmicroelectronics.stm32-vscode-extension",
+        // "ms-vscode.hexeditor",
+        // ARM
+        "dan-c-underwood.arm",
+        // CortexM
+        "marus25.cortex-debug",
+        "mcu-debug.peripheral-viewer",
+        "mcu-debug.memory-view",
+        // "mcu-debug.rtos-views",
         // ESP32
         // "espressif.esp-idf-extension",
-        // "rreverser.ragel",
     ]
 }
