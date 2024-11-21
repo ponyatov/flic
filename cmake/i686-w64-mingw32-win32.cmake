@@ -16,7 +16,7 @@ add_definitions(-mconsole)
 
 # target environment on the build host system
 #   set 1st to dir with the cross compiler's C/C++ headers/libs
-set(CMAKE_FIND_ROOT_PATH /usr/${TOOLCHAIN_PREFIX})
+# set(CMAKE_FIND_ROOT_PATH /usr/${TOOLCHAIN_PREFIX})
 
 # modify default behavior of FIND_XXX() commands to
 # search for headers/libs in the target environment and
