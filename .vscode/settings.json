@@ -82,8 +82,10 @@
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
 
     // openocd
-    "cortex-debug.armToolchainPath": "/usr/bin",
-    "cortex-debug.openocdPath": "/usr/bin/openocd"
+    "cortex-debug.armToolchainPath.linux": "/usr/bin",
+    "cortex-debug.armToolchainPrefix": "arm-none-eabi",
+    "cortex-debug.openocdPath.linux": "/usr/bin/openocd",
+    // "cortex-debug.gdbPath.linux": "/usr/bin/gdb-multiarch",
 
     // // ESP32
     // "idf.adapterTargetName": "esp32",
