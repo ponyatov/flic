@@ -9,10 +9,11 @@
             "type": "cortex-debug",
             "servertype": "openocd",
             "request": "launch",
+            "cwd": "${workspaceRoot}",
             "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
             "toolchainPrefix": "arm-none-eabi",
             // "preLaunchTask": "espruino: STM32F4DISCOVERY",
-            // "svdFile": "${userHome}/stm32/hw/svd/stm32f4/STM32F407.svd",
+            "svdFile": "${userHome}/stm32/hw/svd/stm32f4/STM32F407.svd",
             // "runToEntryPoint": "Reset_Handler",
             "configFiles": [
                 "openocd.cfg"
