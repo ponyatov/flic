@@ -6,29 +6,19 @@
     "configurations": [
         {
             "name": "STM32F407G-DISC1",
-            "type": "cortex-debug",
-            "servertype": "openocd",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
+            "type": "gdb",
+            "request": "attach",
             "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
-            "toolchainPrefix": "arm-none-eabi",
-            "gdbPath": "/usr/bin/gdb-multiarch",
-            "gdbTarget": "localhost:12345",
-            "overrideLaunchCommands": [
-                "target remote :12345",
-                "file ${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
-            //     "add-symbol-file ${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf 0x08000000",
-            //     "enable breakpoint",
-            //     "monitor reset"
-            ],
-            // "preLaunchTask": "espruino: STM32F4DISCOVERY",
-            "svdFile": "${userHome}/stm32/hw/svd/stm32f4/STM32F407.svd",
-            // "runToEntryPoint": "Reset_Handler",
-            "configFiles": [
-                "openocd.cfg"
+            "target": ":12345",
+            "remote": true,
+            "gdbpath": "/usr/bin/gdb-multiarch",
+            "cwd": "${workspaceRoot}",
+            // "preLaunchTask": "CMake: STM32F407G-DISC1",
+            "autorun": [
+                "b Reset_Handler"
+                ,"b main"
+                // ,"monitor reset halt"
             ]
-            // ,"gdbTarget": "localhost:12345"
-            // ,"showDevDebugOutput": "raw"
-        }
+        },
     ]
 }
