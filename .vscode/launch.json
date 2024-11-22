@@ -19,6 +19,6 @@
                 ,"b main"
                 // ,"monitor reset halt"
             ]
-        },
+        }
     ]
 }
