@@ -17,7 +17,8 @@
             "autorun": [
                 "b Reset_Handler"
                 ,"b main"
-                // ,"monitor reset halt"
+                // ,"monitor reset"
+                // ,"c"
             ]
         }
     ]
