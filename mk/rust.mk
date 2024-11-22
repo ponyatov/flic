@@ -1,9 +1,12 @@
 R += $(wildcard src/*.rs)
-B  = $(patsubst src/%.rs,tmp/%.o,$(R))
+B  = $(patsubst src/%.rs,bin/%,$(R))
 
 .PHONY: rust
-rust: $(B)
-	ls -la $^ ; file $^
+rust: bin/$(MODULE)_rs
+	$^
 
-tmp/%.o: src/%.rs
+bin/$(MODULE)_rs: $(R)
 	rustc -o $@ $<
+
+tmp/format_rs: $(R)
+	rustfmt $? && touch $@
