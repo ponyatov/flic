@@ -13,6 +13,7 @@ include mk/doc.mk
 include mk/ref.mk
 include mk/install.mk
 include mk/merge.mk
+include mk/rust.mk
 
 # cross
 HW      = STM32F407G-DISC1

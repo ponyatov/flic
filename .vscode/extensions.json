@@ -39,5 +39,7 @@
         // "mcu-debug.rtos-views",
         // ESP32
         // "espressif.esp-idf-extension",
+        // Rust
+        "rust-lang.rust-analyzer",
     ]
 }
