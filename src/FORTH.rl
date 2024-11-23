@@ -38,9 +38,10 @@ struct TOKEN {
     m = '-';
     n = [0-9];
     main := |*
-        p => { plus = true; };
-        m => { plus = false; };
-        n => { res = res * 10 + (*ts - '0'); };
+        p     => { plus = true; };
+        m     => { plus = false; };
+        n     => { res *= 10; res += (*ts - '0'); };
+        <eof> => { return res; }
     *|;
 }%%
 
