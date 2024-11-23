@@ -7,8 +7,19 @@
     // https://github.com/microsoft/vscode/issues/109234#issuecomment-719702107
     "configurations": [
         {
-            "name": "arm-none-eabi: BSP",
-            "type": "flic"
+            "cwd": "${workspaceFolder}",
+            "executable": "./bin/executable.elf",
+            "name": "Debug with ST-Link",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "servertype": "stlink"
+        },
+        {
+            "name": "BSP",
+            "type": "flic",
+            "request": "launch"
         },
         {
             "name": "STM32F407G-DISC1",

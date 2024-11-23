@@ -17,3 +17,10 @@ openocd: $(TMP)/$(HW)/$(MODULE).hex
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
 	$@-multiarch -q -ex "target extended-remote :${GDBPORT}" -x .gdbinit $<
+
+.PHONY: dap
+dap: bin/DAP
+	$^
+bin/DAP: $(SRC)/DAP.cpp $(TMP)/DAP.parser.cpp $(TMP)/DAP.lexer.cpp
+	$(CXX) $(XFLAGS) -o $@ $^
+$(SRC)/DAP.cpp: $(INC)/DAP.hpp

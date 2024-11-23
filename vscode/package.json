@@ -26,7 +26,8 @@
     "activationEvents": [
         "workspaceContains:lib/*.ini",
         "workspaceContains:lib/*.s",
-        "onDebug"
+        "onDebug",
+        "onDebugResolve:flic"
     ],
     "extensionDependencies": [
         "ryuta46.multi-command",
@@ -51,7 +52,16 @@
     "contributes": {
         "debuggers": [
             {
-                "type": "flic"
+                "type": "flic",
+                "configurationSnippets": [
+                    {
+                        "label": "flic: Cortex-M",
+                        "body":{
+                            "type": "cortex-debug",
+                            "request": "launch"
+                        }
+                    }
+                ]
             }
         ],
         "grammars": [{

@@ -15,17 +15,21 @@ $(TMP)/core_%.o: $(CORE)/Src/%.c $(H)
 	$(TCC) $(TCFLAGS) -o $@ -c $<
 
 # parser
-ifeq ($(OS),Linux)
+# ifeq ($(OS),Linux)
 $(TMP)/%.lexer.c: $(SRC)/%.lex
+	flex -o $@ $<
+$(TMP)/%.lexer.cpp: $(SRC)/%.lex
 	flex -o $@ $<
 $(TMP)/%.parser.c: $(SRC)/%.yacc
 	bison -o $@ $<
-else
-$(TMP)/%.lexer.c: $(SRC)/%.ragel
-	echo > $@
-$(TMP)/%.parser.c: $(SRC)/%.ragel
-	ragel -G2 -o $@ $<
-endif
+$(TMP)/%.parser.cpp: $(SRC)/%.yacc
+	bison -o $@ $<
+# else
+# $(TMP)/%.lexer.c: $(SRC)/%.ragel
+# 	echo > $@
+# $(TMP)/%.parser.c: $(SRC)/%.ragel
+# 	ragel -G2 -o $@ $<
+# endif
 
 .PHONY: hex bin
 hex: tmp/$(HW)/$(MODULE).hex
