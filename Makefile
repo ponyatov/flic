@@ -14,18 +14,3 @@ include mk/doc.mk
 include mk/install.mk
 include mk/merge.mk
 include mk/rust.mk
-
-# .PHONY: disco
-# disco:
-# 	rm -rf $(TMP)/$(HW)
-# 	$(CMAKE) -DCMAKE_VERBOSE_MAKEFILE=ON \
-# 		-S$(CWD) -B$(TMP)/$(HW) --preset=$(HW)
-# 	$(CMAKE) --build $(TMP)/$(HW)
-
-.PHONY: openocd
-openocd: $(TMP)/$(HW)/$(MODULE).hex
-	$@
-
-.PHONY: gdb
-gdb: $(TMP)/$(HW)/$(MODULE).elf
-	$@-multiarch -q -x .gdbinit $<

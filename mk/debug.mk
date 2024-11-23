@@ -9,3 +9,11 @@ $(SWD)/README.md:
 flash: $(TMP)/$(HW)/$(MODULE).bin
 	st-flash write $< $(ROM)
 # --connect-under-reset
+
+.PHONY: openocd
+openocd: $(TMP)/$(HW)/$(MODULE).hex
+	$@ -c "gdb_port $(GDBPORT)"
+
+.PHONY: gdb
+gdb: $(TMP)/$(HW)/$(MODULE).elf
+	$@-multiarch -q -x .gdbinit $<
