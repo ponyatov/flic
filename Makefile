@@ -29,9 +29,3 @@ openocd: $(TMP)/$(HW)/$(MODULE).hex
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
 	$@-multiarch -q -x .gdbinit $<
-
-# .PHONY: flash
-# flash: $(TMP)/$(HW)/$(MODULE).bin
-# 	st-flash --connect-under-reset write $< $(FLASH)
-# %.bin: %.elf
-# 	arm-none-eabi-objcopy -O binary $< $@
