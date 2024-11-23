@@ -11,15 +11,9 @@ include mk/format.mk
 include mk/rule.mk
 include mk/debug.mk
 include mk/doc.mk
-include mk/ref.mk
 include mk/install.mk
 include mk/merge.mk
 include mk/rust.mk
-
-# REF += hw/svd/README.md
-# hw/svd/README.md:
-# 	$(GITREF) https://github.com/ponyatov/cmsis-svd-stm32.git hw/svd
-
 
 # .PHONY: disco
 # disco:
@@ -41,8 +35,3 @@ gdb: $(TMP)/$(HW)/$(MODULE).elf
 # 	st-flash --connect-under-reset write $< $(FLASH)
 # %.bin: %.elf
 # 	arm-none-eabi-objcopy -O binary $< $@
-
-.PHONY: hex
-hex: tmp/$(HW)/$(MODULE).hex
-.PHONY: bin
-bin: tmp/$(HW)/$(MODULE).bin

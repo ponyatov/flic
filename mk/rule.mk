@@ -27,15 +27,10 @@ $(TMP)/%.parser.c: $(SRC)/%.ragel
 	ragel -G2 -o $@ $<
 endif
 
-# # readline
-# .PHONY: microrl
-# microrl: $(SRC)/microrl.c $(INC)/microrl.h $(INC)/config.h
-# $(SRC)/%.c: $(REF)/microrl/src/%.c $(INC)/%.h $(INC)/config.h
-# 	cp $< $@
-# $(INC)/%.h: $(REF)/microrl/src/%.h
-# 	cp $< $@
-
+.PHONY: hex bin
+hex: tmp/$(HW)/$(MODULE).hex
 %.hex: %.elf
 	$(TARGET)-objcopy -O ihex $< $@
+bin: tmp/$(HW)/$(MODULE).bin
 %.bin: %.elf
 	$(TARGET)-objcopy -O binary $< $@
