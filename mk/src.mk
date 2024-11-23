@@ -1,5 +1,5 @@
 # src
-C += $(wildcard $(SRC)/*.c*)
+C += $(wildcard $(SRC)/*.c*) tmp/FORTH.c
 H += $(wildcard $(INC)/*.h*)
 J += $(wildcard $(LIB)/*.js) $(wildcard $(TMP)/*.js)
 F += $(wildcard $(LIB)/*.ini) $(wildcard $(LIB)/*.f)
