@@ -1,2 +1,4 @@
 *.orig
 *.mxproject
+svd/
+!.gitignore

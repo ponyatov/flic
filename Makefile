@@ -9,17 +9,12 @@ include mk/cfg.mk
 include mk/all.mk
 include mk/format.mk
 include mk/rule.mk
+include mk/debug.mk
 include mk/doc.mk
 include mk/ref.mk
 include mk/install.mk
 include mk/merge.mk
 include mk/rust.mk
-
-# cross
-HW      = STM32F407G-DISC1
-CPU     = STM32F407VGT
-FLASH   = 0x08000000
-GDBPORT = 12345
 
 # REF += hw/svd/README.md
 # hw/svd/README.md:
