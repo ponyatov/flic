@@ -10,6 +10,8 @@
 
 /// @brief token type
 typedef enum {
+    NIL,   ///< nil
+    BOOL,  ///< boolean
     CHAR,  ///< single 8bit char
     INT,   ///< signed integer
     NUM,   ///< floating point number
@@ -19,6 +21,7 @@ typedef enum {
 
 /// @brief token value (one of)
 typedef union {
+    bool b;   ///< Bool
     char c;   ///< Char
     int n;    ///< iNteger
     float f;  ///< Floating-point
@@ -41,19 +44,19 @@ struct TOKEN {
         p     => { plus = true; };
         m     => { plus = false; };
         n     => { res *= 10; res += (*ts - '0'); };
-        <eof> => { return res; }
     *|;
 }%%
 
 %%write data nofinal;
 
 int ton(char* p, char* pe) {
-    int cs;
-    char *ts, *te, *act;
-    int res = 0;       // result
-    bool plus = true;  // positive|negative number
+    int cs;               // current DFA state
+    char *ts, *te, *act;  // token start/end
+    int res = 0;          // result
+    bool plus = true;     // positive|negative number
     %%write init;
     %%write exec;
+    if (plus) return +res; else return -res;
 }
 
 %%{
@@ -87,11 +90,12 @@ void source(char* buf, size_t size) {
 
 /// @brief parse single token from input buffer
 struct TOKEN token(void) {
-    int cs;
-    char *ts, *te, *act;
-    struct TOKEN token;
+    int cs;                           // current DFA state
+    char *ts, *te, *act;              // token start/end
+    struct TOKEN token = {.t = NIL};  // empty token
     %%write init;
     %%write exec;
+    return token;
 }
 
 /// @}

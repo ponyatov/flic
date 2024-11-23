@@ -1,4 +1,9 @@
 # cross
+HW      = STM32F407G-DISC1
+CPU     = STM32F407VGT
+FLASH   = 0x08000000
+GDBPORT = 12345
+
 HWINFO = tmp/hw.info
 
 ifeq (,$(wildcard $(HWINFO)))

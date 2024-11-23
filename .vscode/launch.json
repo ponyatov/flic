@@ -20,6 +20,35 @@
                 // ,"monitor reset"
                 // ,"c"
             ]
+        },
+        // https://stackoverflow.com/a/71306801/2134384
+        {
+            "name": "arm-none-eabi",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
+            "cwd": "${workspaceRoot}",
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "miDebuggerServerAddress": "localhost:12345",
+            "setupCommands": [{"text": "-enable-pretty-printing","ignoreFailures": true}]
+        },
+        {
+            "name": "cortex-debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
+            "cwd": "${workspaceRoot}",
+            "servertype": "openocd",
+            "openOCDPreConfigLaunchCommands": [
+                "gdb_port 12345",
+                "telnet_port 12346",
+            ],
+            "openOCDLaunchCommands": [
+                "test_image ${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf"
+            ],
+            "configFiles": ["${workspaceRoot}/openocd.cfg"],
+            "gdbTarget": "localhost:12345"
         }
     ]
 }
