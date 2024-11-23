@@ -1,8 +1,6 @@
-.PHONY: all run
+.PHONY: all run host
 all: bin/$(MODULE)_$(HW) $(F)
 run: bin/$(MODULE)_$(HW) $(F)
 	$^
-
-.PHONY: cpp
-cpp:
+host:
 	$(shell HW=_ make run)

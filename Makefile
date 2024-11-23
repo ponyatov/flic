@@ -4,6 +4,7 @@ include mk/cross.mk
 include mk/dirs.mk
 include mk/tool.mk
 include mk/src.mk
+include mk/cmake.mk
 include mk/package.mk
 include mk/cfg.mk
 include mk/all.mk
