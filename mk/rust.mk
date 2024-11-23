@@ -13,9 +13,10 @@ bin/FORTH: $(O)
 tmp/%.o: tmp/%.rs lib/FORTH.ini
 	rustc -o $@ $<
 
-tmp/%.o: src/%.rl
-	ragel -G2 -o $@.c $<
-	$(CC) -c -o $@ $@.c
+tmp/%.o: tmp/%.c
+	$(CC) -c -o $@ $<
+tmp/%.c: src/%.rl
+	ragel -L -G2 -o $@ $<
 
 tmp/format_rs: $(R)
 	rustfmt $? && touch $@
