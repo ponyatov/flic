@@ -12,8 +12,8 @@ flash: $(TMP)/$(HW)/$(MODULE).bin
 
 .PHONY: openocd
 openocd: $(TMP)/$(HW)/$(MODULE).hex
-	$@ -c "gdb_port $(GDBPORT)"
+	$@ -c "gdb_port ${GDBPORT}" -f openocd.cfg
 
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
-	$@-multiarch -q -x .gdbinit $<
+	$@-multiarch -q -ex "target extended-remote :${GDBPORT}" -x .gdbinit $<

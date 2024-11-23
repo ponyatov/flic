@@ -1,9 +1,14 @@
+## off paging
 set startup-quietly on
 set height 0
 set pagination off
-target extended-remote :12345
-# load
+
+## remote
+set remotetimeout 1
+# target extended-remote :12345 # set via -ex "${GDBPORT}"
+
+## load
 b Reset_Handler
 b main
-monitor reset halt
+# monitor reset halt
 # c
