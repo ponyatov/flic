@@ -4,7 +4,8 @@ set height 0
 set pagination off
 
 ## remote
-set remotetimeout 1
+set tcp connect-timeout 1
+# set tcp auto-retry off
 # target extended-remote :12345 # set via -ex "${GDBPORT}"
 
 ## load
