@@ -33,7 +33,7 @@
         },
         {
             "type": "cmake",
-            "label": "CMake: STM32F407G-DISC1",
+            "label": "cmake: build",
             "command": "build",
             "targets": ["all"],
             "preset": "${command:cmake.activeBuildPresetName}",

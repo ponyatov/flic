@@ -12,13 +12,18 @@
             "target": ":12345",
             "remote": true,
             "gdbpath": "/usr/bin/gdb-multiarch",
-            "cwd": "${workspaceRoot}",
-            // "preLaunchTask": "CMake: STM32F407G-DISC1",
+            "cwd": "${workspaceFolder}",
+            // "stopAtConnect": true,
+            // "preLaunchTask": "cmake: build"
+            // "debugger_args": ["-x ${workspaceFolder}/.gdbinit"],
             "autorun": [
                 "b Reset_Handler"
+                ,"b SystemInit"
                 ,"b main"
-                ,"monitor reset halt"
+                // ,"monitor reset halt"
+                ,"c"
             ]
+            // "showDevDebugOutput": true
         }
     ]
 }
