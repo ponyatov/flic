@@ -5,6 +5,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "arm-none-eabi",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "serverpath": "/usr/bin/openocd",
+            "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "cwd": "${workspaceFolder}",
+            "configFiles": ["${workspaceFolder}/openocd.cfg"],
+            "postRestartCommands": [
+                "b Reset_Handler",
+                "b SystemInit",
+                "b main",
+                "monitor reset halt"
+                // "c"
+            ]
+        },
+        {
             "name": "STM32F407G-DISC1",
             "type": "gdb",
             "request": "attach",
