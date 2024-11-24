@@ -13,4 +13,3 @@ b Reset_Handler
 b SystemInit
 b main
 monitor reset halt
-c
