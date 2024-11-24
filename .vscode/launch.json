@@ -3,30 +3,13 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    // templates: see vscode/package.json
-    // https://github.com/microsoft/vscode/issues/109234#issuecomment-719702107
     "configurations": [
-        {
-            "cwd": "${workspaceFolder}",
-            "executable": "./bin/executable.elf",
-            "name": "Debug with ST-Link",
-            "request": "launch",
-            "type": "cortex-debug",
-            "runToEntryPoint": "main",
-            "showDevDebugOutput": "none",
-            "servertype": "stlink"
-        },
-        {
-            "name": "BSP",
-            "type": "flic",
-            "request": "launch"
-        },
         {
             "name": "STM32F407G-DISC1",
             "type": "gdb",
             "request": "attach",
-            "target": ":12345",
             "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
+            "target": ":12345",
             "remote": true,
             "gdbpath": "/usr/bin/gdb-multiarch",
             "cwd": "${workspaceRoot}",
@@ -34,38 +17,8 @@
             "autorun": [
                 "b Reset_Handler"
                 ,"b main"
-                // ,"monitor reset"
-                // ,"c"
+                // ,"monitor reset halt"
             ]
-        },
-        // https://stackoverflow.com/a/71306801/2134384
-        {
-            "name": "arm-none-eabi",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
-            "cwd": "${workspaceRoot}",
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
-            "miDebuggerServerAddress": "localhost:12345",
-            "setupCommands": [{"text": "-enable-pretty-printing","ignoreFailures": true}]
-        },
-        {
-            "name": "cortex-debug",
-            "type": "cortex-debug",
-            "request": "launch",
-            "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
-            "cwd": "${workspaceRoot}",
-            "servertype": "openocd",
-            "openOCDPreConfigLaunchCommands": [
-                "gdb_port 12345",
-                "telnet_port 12346",
-            ],
-            "openOCDLaunchCommands": [
-                "test_image ${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf"
-            ],
-            "configFiles": ["${workspaceRoot}/openocd.cfg"],
-            "gdbTarget": "localhost:12345"
         }
     ]
 }

@@ -17,7 +17,7 @@
             "inherits": "common",
             "toolchainFile": "${sourceDir}/cmake/arm-none-eabi-gcc.cmake",
             "cacheVariables": {
-                "WARN":       "-Wall -Wextra -Wpedantic",
+                "WFLAGS":     "-Wall -Wextra -Wpedantic",
                 "FSECTIONS":  "-fdata-sections -ffunction-sections",
                 "GCSECTIONS": "-Wl,--gc-sections",
                 "CMAKE_VERBOSE_MAKEFILE": true}

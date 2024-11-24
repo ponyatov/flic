@@ -1,27 +1,31 @@
 const vscode = require('vscode');
 
-function hello() {
+function hello() {  //
     vscode.window.showInformationMessage('flic/hello');
 }
 
-function repl() {
-    vscode.window.showInformationMessage('flic/repl');
-}
-
 async function activate(context) {
-    console.log(activate, context);
-    let hello = vscode.commands.registerCommand('flic.hello', hello);
-    context.subscriptions.push(hello);
-    let repl = vscode.commands.registerCommand('flic.repl', repl);
-    context.subscriptions.push(repl);
+    // console.log(activate, context);
+    // vscode.window.showInformationMessage('flic/activate');
+    //
+    context.subscriptions.push(
+        vscode.commands.registerCommand('dponyatov.flic.hello', hello));
+    //
+    // context.subscriptions.push(
+    //     vscode.commands.registerCommand('dponyatov.flic.install', () => {
+    //         vscode.commands.executeCommand('cmake.install');
+    //     }));
+    // //
+    // vscode.commands.executeCommand('dponyatov.flic.install');
 }
 
 function deactivate() {
-    console.log(deactivate);
+    // console.log(deactivate);
+    // vscode.window.showInformationMessage('flic/deactivate');
 }
 
 module.exports = {
     activate,
     deactivate,
-    hello,repl
+    hello
 }
