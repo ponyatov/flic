@@ -18,12 +18,12 @@ file(GLOB_RECURSE A
     "${CWD}/hw/${HW}/*.s"
 )
 file(GLOB_RECURSE C
-    "${SRC}/*.c*" "${TMP}/*.c*"
+    "${SRC}/*.c*"
     "${CWD}/hw/${HW}/Core/Src/*.c*"
     "${CWD}/hw/${HW}/Drivers/STM32F4xx_HAL_Driver/Src/*.c*"
 )
 file(GLOB_RECURSE H
-    "${INC}/*.h*" "${TMP}/*.h*"
+    "${INC}/*.h*"
     "${CWD}/hw/${HW}/Core/Inc/*.h*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include/*.h*"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/STM32F4xx/Include/*.h*"
@@ -73,7 +73,7 @@ message("--   startup: " ${A})
 
 add_executable(${CMAKE_PROJECT_NAME}
     ${C} ${H} ${A}
-    ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
+    # ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
 )
 
 target_link_libraries(${PROJECT_NAME})
