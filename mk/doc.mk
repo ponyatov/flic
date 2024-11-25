@@ -16,13 +16,23 @@ DOCS += doc/STM32/openocd.pdf
 doc/STM32/openocd.pdf:
 	$(CURL) $@ https://openocd.org/doc/pdf/openocd.pdf
 
+kolegite = https://kolegite.com/EE_library/standards/ARM_ABI
+
 DOCS += doc/ARM/ARM_BSABI32_23Q3.pdf
 doc/ARM/ARM_BSABI32_23Q3.pdf:
-	$(CURL) $@ https://kolegite.com/EE_library/standards/ARM_ABI/bsabi32.pdf
+	$(CURL) $@ $(kolegite)/bsabi32.pdf
 
-DOCS += doc/ARM/ARM_AAPCS32_19Q1.pdf
-doc/ARM/ARM_AAPCS32_19Q1.pdf:
-	$(CURL) $@ http://www.macs.hw.ac.uk/~hwloidl/Courses/F28HS/Docu/aapcs32.pdf
+DOCS += doc/ARM/ARM_AAPCS32_23Q3.pdf
+doc/ARM/ARM_AAPCS32_23Q3.pdf:
+	$(CURL) $@ $(kolegite)/aapcs32.pdf
+
+DOCS += doc/ARM/ARM_CPPABI32_23Q3.pdf
+doc/ARM/ARM_CPPABI32_23Q3.pdf:
+	$(CURL) $@ $(kolegite)/cppabi32.pdf
+
+DOCS += doc/ARM/ARM_RTABI32_23Q3.pdf
+doc/ARM/ARM_RTABI32_23Q3.pdf:
+	$(CURL) $@ $(kolegite)/rtabi32.pdf
 
 .PHONY: doc
 doc: $(DOCS)
