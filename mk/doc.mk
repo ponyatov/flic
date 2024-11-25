@@ -16,5 +16,9 @@ DOCS += doc/STM32/openocd.pdf
 doc/STM32/openocd.pdf:
 	$(CURL) $@ https://openocd.org/doc/pdf/openocd.pdf
 
+DOCS += doc/ARM/ARM_BSABI32_23Q3.pdf
+doc/ARM/ARM_BSABI32_23Q3.pdf:
+	$(CURL) $@ https://kolegite.com/EE_library/standards/ARM_ABI/bsabi32.pdf
+
 .PHONY: doc
 doc: $(DOCS)
