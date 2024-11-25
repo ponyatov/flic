@@ -52,5 +52,9 @@ DOCS += doc/ARM/ARM_AAELF32_23Q3.pdf
 doc/ARM/ARM_AAELF32_23Q3.pdf:
 	$(CURL) $@ $(kolegite)/aaelf32.pdf
 
+DOCS += doc/ARM/ARM7TDMI_thumb.pdf
+doc/ARM/ARM7TDMI_thumb.pdf:
+	$(CURL) $@ http://bear.ces.cwru.edu/eecs_382/ARM7-TDMI-manual-pt3.pdf
+
 .PHONY: doc
 doc: $(DOCS)
