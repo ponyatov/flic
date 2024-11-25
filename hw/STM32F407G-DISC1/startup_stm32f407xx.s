@@ -59,15 +59,15 @@ defined in linker script */
   .type  Reset_Handler, %function
 Reset_Handler:  
 @   ldr   sp, =_estack     /* set stack pointer */
-  ldr   sp, =_ccmstack
-  ldr r0,=_sccmram
+  ldr  sp, =_ccmstack
+  ldr  r0,=_sccmram
   movs r1, #0
   movs r2, #0x20
 ccfill:
   strb r1,[r0,r1]
   adds r1,r1,#1
-  cmp r1,r2
-  bcc ccfill
+  cmp  r1,r2
+  bcc  ccfill
   
 /* Call the clock system initialization function.*/
   bl  SystemInit  
