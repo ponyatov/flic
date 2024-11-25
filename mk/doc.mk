@@ -4,14 +4,6 @@ LOGO = vscode/$(MODULE).png
 doxy: .doxygen doc/DoxygenLayout.xml $(LOGO)
 	rm -rf doc/html ; doxygen $< 1>/dev/null
 
-DOCS += doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
-doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf:
-	$(CURL) $@ https://www.st.com/resource/en/user_manual/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
-
-DOCS += doc/STM32/dm00083249-use-ccm-sram.pdf
-doc/STM32/dm00083249-use-ccm-sram.pdf:
-	$(CURL) $@ http://www.st.com/web/en/resource/technical/document/application_note/DM00083249.pdf
-
 STM = https://www.st.com/resource/en
 
 # DOCS += doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
