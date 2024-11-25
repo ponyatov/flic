@@ -30,9 +30,8 @@ NEWLIB    = newlib-salsa
 NEWLIB_GZ = /usr/src/newlib/newlib-$(NEWLIB_VER).tar.xz
 
 .PHONY: newlib
-newlib: $(HOME)/stm32/$(NEWLIB)/README
-$(HOME)/stm32/$(NEWLIB)/README: $(NEWLIB_GZ)
-	cd $(HOME)/stm32 ;\
-	xzcat $< | tar x && touch $@
+newlib: $(HOME)/stm32/ref/$(NEWLIB)/README
+$(HOME)/stm32/ref/$(NEWLIB)/README: $(NEWLIB_GZ)
+	cd $(dir $@)/.. ; xzcat $< | tar x && touch $@
 $(NEWLIB_GZ):
 	sudo apt install newlib-source
