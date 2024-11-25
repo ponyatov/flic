@@ -1,0 +1,12 @@
+--- startup_stm32f407xx.s	2024-11-26 00:58:55.000847307 +0400
++++ startup_stm32f407xx.s.fix	2024-11-26 00:58:55.000847307 +0400
+@@ -59,7 +59,8 @@
+   .type  Reset_Handler, %function
+ Reset_Handler:  
+   ldr   sp, =_estack     /* set stack pointer */
+-  
++  ldr   sp, =_ccmstack   /* to fast CCMRAM & leave top RAM for DMA */
++
+ /* Call the clock system initialization function.*/
+   bl  SystemInit  
+ 
