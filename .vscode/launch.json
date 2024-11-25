@@ -21,27 +21,6 @@
                 "monitor reset halt"
                 // "c"
             ]
-        },
-        // { // some shit not works again!
-        //     "name": "STM32F407G-DISC1",
-        //     "type": "gdb",
-        //     "request": "attach",
-        //     "executable": "${workspaceFolder}/tmp/STM32F407G-DISC1/${workspaceFolderBasename}.elf",
-        //     "target": ":12345",
-        //     "remote": true,
-        //     "gdbpath": "/usr/bin/gdb-multiarch",
-        //     "cwd": "${workspaceFolder}",
-        //     // "stopAtConnect": true,
-        //     // "preLaunchTask": "cmake: build"
-        //     // "debugger_args": ["-x ${workspaceFolder}/.gdbinit"],
-        //     "autorun": [
-        //         "b Reset_Handler"
-        //         ,"b SystemInit"
-        //         ,"b main"
-        //         // ,"monitor reset halt"
-        //         ,"c"
-        //     ]
-        //     // "showDevDebugOutput": true
-        // }
+        }
     ]
 }
