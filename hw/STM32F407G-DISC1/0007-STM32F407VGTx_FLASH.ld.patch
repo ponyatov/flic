@@ -1,0 +1,10 @@
+--- STM32F407VGTx_FLASH.ld.orig	2024-11-17 03:49:15.875809022 +0400
++++ STM32F407VGTx_FLASH.ld	2024-11-25 15:42:05.325222804 +0400
+@@ -55,15 +13,18 @@
+_Min_Stack_Size = 0x400; /* required amount of stack */
+ 
++_bccmram = ORIGIN(CCMRAM)
++_eccmram = ORIGIN(CCMRAM) + LENGTH(CCMRAM)
++
+/* Specify the memory areas */
+MEMORY
