@@ -1,5 +1,5 @@
---- STM32F407VGTx_FLASH.ld	2024-11-25 16:12:51.745202052 +0400
-+++ STM32F407VGTx_FLASH.ld.fix	2024-11-25 16:12:51.745202052 +0400
+--- STM32F407VGTx_FLASH.ld	2024-11-25 16:16:36.913199521 +0400
++++ STM32F407VGTx_FLASH.ld.fix	2024-11-25 16:17:58.089198609 +0400
 @@ -16,6 +16,9 @@
  _Min_Heap_Size  = 0x200; /* required amount of heap  */
  _Min_Stack_Size = 0x400; /* required amount of stack */
