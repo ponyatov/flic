@@ -8,6 +8,10 @@ DOCS += doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-
 doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf:
 	$(CURL) $@ https://www.st.com/resource/en/user_manual/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
 
+DOCS += doc/STM32/dm00083249-use-ccm-sram.pdf
+doc/STM32/dm00083249-use-ccm-sram.pdf:
+	$(CURL) $@ http://www.st.com/web/en/resource/technical/document/application_note/DM00083249.pdf
+
 DOCS += doc/STM32/openocd.pdf
 doc/STM32/openocd.pdf:
 	$(CURL) $@ https://openocd.org/doc/pdf/openocd.pdf
