@@ -70,6 +70,14 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define PC14_OSC32_IN_Pin LL_GPIO_PIN_14
+#define PC14_OSC32_IN_GPIO_Port GPIOC
+#define PC15_OSC32_OUT_Pin LL_GPIO_PIN_15
+#define PC15_OSC32_OUT_GPIO_Port GPIOC
+#define PH0_OSC_IN_Pin LL_GPIO_PIN_0
+#define PH0_OSC_IN_GPIO_Port GPIOH
+#define PH1_OSC_OUT_Pin LL_GPIO_PIN_1
+#define PH1_OSC_OUT_GPIO_Port GPIOH
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */
