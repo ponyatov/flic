@@ -12,6 +12,20 @@ DOCS += doc/STM32/dm00083249-use-ccm-sram.pdf
 doc/STM32/dm00083249-use-ccm-sram.pdf:
 	$(CURL) $@ http://www.st.com/web/en/resource/technical/document/application_note/DM00083249.pdf
 
+STM = https://www.st.com/resource/en
+
+DOCS += doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
+doc/STM32/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf:
+	$(CURL) $@ $(STM)/user_manual/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
+
+DOCS += doc/STM32/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf
+doc/STM32/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf:
+	$(CURL) $@ $(STM)/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf
+
+DOCS += doc/STM32/stm32f405rg.pdf
+doc/STM32/stm32f405rg.pdf:
+	$(CURL) $@ $(STM)/datasheet/stm32f405rg.pdf
+
 DOCS += doc/STM32/openocd.pdf
 doc/STM32/openocd.pdf:
 	$(CURL) $@ https://openocd.org/doc/pdf/openocd.pdf
