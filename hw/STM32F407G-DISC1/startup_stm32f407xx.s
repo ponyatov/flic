@@ -58,16 +58,7 @@ defined in linker script */
   .weak  Reset_Handler
   .type  Reset_Handler, %function
 Reset_Handler:  
-@   ldr   sp, =_estack     /* set stack pointer */
-  ldr  sp, =_ccmstack
-  ldr  r0,=_sccmram
-  movs r1, #0
-  movs r2, #0x20
-ccfill:
-  strb r1,[r0,r1]
-  adds r1,r1,#1
-  cmp  r1,r2
-  bcc  ccfill
+  ldr   sp, =_estack     /* set stack pointer */
   
 /* Call the clock system initialization function.*/
   bl  SystemInit  
@@ -105,7 +96,6 @@ LoopFillZerobss:
 
 /* Call static constructors */
     bl __libc_init_array
-
 /* Call the application's entry point.*/
   bl  main
   bx  lr    
