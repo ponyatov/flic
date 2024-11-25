@@ -20,5 +20,9 @@ DOCS += doc/ARM/ARM_BSABI32_23Q3.pdf
 doc/ARM/ARM_BSABI32_23Q3.pdf:
 	$(CURL) $@ https://kolegite.com/EE_library/standards/ARM_ABI/bsabi32.pdf
 
+DOCS += doc/ARM/ARM_AAPCS32_19Q1.pdf
+doc/ARM/ARM_AAPCS32_19Q1.pdf:
+	$(CURL) $@ http://www.macs.hw.ac.uk/~hwloidl/Courses/F28HS/Docu/aapcs32.pdf
+
 .PHONY: doc
 doc: $(DOCS)
