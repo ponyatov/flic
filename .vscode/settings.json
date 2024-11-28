@@ -54,6 +54,12 @@
     "clang-format.fallbackStyle":  "Google",
     "clang-format.style":          "file",
 
+    // JavaScript
+    "[javascript]": {
+        "editor.defaultFormatter": "xaver.clang-format",
+        "editor.formatOnSave":     true
+    },
+
     // C++
     "[c]": {
         "editor.defaultFormatter": "xaver.clang-format",
@@ -97,4 +103,5 @@
         "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true
     },
+    "cortex-debug.variableUseNaturalFormat": false,
 }
