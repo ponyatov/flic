@@ -8,3 +8,6 @@ F += $(wildcard $(LIB)/*.ini) $(wildcard $(LIB)/*.f)
 # HP += $(TMP)/$(MODULE).parser.hpp
 
 OBJ += $(TMP)/vm.o $(TMP)/compiler.o $(TMP)/microrl.o
+
+# some tools
+CX += bin/crlf.cpp

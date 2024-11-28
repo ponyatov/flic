@@ -4,3 +4,7 @@ run: bin/$(MODULE)_$(HW) $(F)
 	$^
 host:
 	$(shell HW=_ make run)
+
+.PHONY: check
+check: bin/crlf
+	$< bin/crlf.cpp
