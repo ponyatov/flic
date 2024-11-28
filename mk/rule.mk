@@ -5,9 +5,6 @@ OBJ += $(patsubst $(SRC)/%.c,$(TMP)/%.o,$(C))
 bin/$(MODULE)_$(HW): $(OBJ)
 	$(TCC) $(TLFLAGS) -o $@ $^ $(L)
 
-bin/%: bin/%.cpp
-	$(CXX) -std=gnu++17 $(CFLAGS) -o $@ $<
-
 $(TMP)/%.o: $(TMP)/%.c $(H)
 	$(TCC) $(TCFLAGS) -o $@ -c $<
 $(TMP)/%.o: $(SRC)/%.c $(H)
