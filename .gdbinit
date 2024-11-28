@@ -9,7 +9,7 @@ set tcp connect-timeout 1
 # target extended-remote :12345
 
 ## load
-b Reset_Handler
-b SystemInit
+# b Reset_Handler
+# b SystemInit
 b main
 monitor reset halt
