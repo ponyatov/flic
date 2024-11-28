@@ -26,9 +26,9 @@
         // embedded
         "zixuanwang.linkerscript",
         "trond-snekvik.gnu-mapfiles",
+        "ms-vscode.hexeditor",
         // ???
         // "stmicroelectronics.stm32-vscode-extension",
-        // "ms-vscode.hexeditor",
         // ARM
         "dan-c-underwood.arm",
         // CortexM

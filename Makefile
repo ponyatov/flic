@@ -12,6 +12,7 @@ include mk/format.mk
 include mk/rule.mk
 include mk/debug.mk
 include mk/doc.mk
+include mk/ref.mk
 include mk/install.mk
 include mk/merge.mk
 include mk/rust.mk
