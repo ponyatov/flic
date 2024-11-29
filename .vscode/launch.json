@@ -21,6 +21,24 @@
                 "monitor reset halt"
                 // "c"
             ]
+        },
+        {
+            "name": "STM32L496G-DISCO",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "serverpath": "/usr/bin/openocd",
+            "executable": "${workspaceFolder}/tmp/STM32L496G-DISCO/${workspaceFolderBasename}.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "cwd": "${workspaceFolder}",
+            "configFiles": ["${workspaceFolder}/openocd.cfg"],
+            "postRestartCommands": [
+                "b Reset_Handler",
+                "b SystemInit",
+                "b main",
+                "monitor reset halt"
+                // "c"
+            ]
         }
     ]
 }
