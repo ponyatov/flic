@@ -37,6 +37,11 @@
             "cacheVariables": {"HW":"STM32F407G-DISC1","CPU":"STM32F407VGT"}
         },
         {
+            "name": "STM32L496G-DISCO",
+            "inherits": "cortexM4",
+            "cacheVariables": {"HW":"STM32L496G-DISCO","CPU":"STM32L496AGI3"}
+        },
+        {
             "name": "linux",
             "displayName": "host: GCC 12.2.0 x86_64-linux-gnu",
             "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
