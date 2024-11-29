@@ -15,3 +15,8 @@ openocd: $(TMP)/$(HW)/$(MODULE).hex
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
 	$@-multiarch -q -x .gdbinit $<
+
+.PHONY: ddd
+ddd: tmp/$(HW)/$(MODULE).elf
+	ddd --debugger "gdb-multiarch -q -x .gdbinit" $<
+# -q -x .gdbinit $<
