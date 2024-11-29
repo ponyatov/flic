@@ -30,7 +30,7 @@
         "lib/*.ini": "flic", "lib/*.f": "flic",
         "*.mk": "makefile", "hw.info": "makefile",
         "*.ioc": "ini",
-        "*.s": "arm", "*.S": "arm",
+        "*.s": "arm", "*.S": "arm", "*.ld*": "linkerscript",
         ".gdbinit": "properties", "*.cfg": "properties"
     },
 
