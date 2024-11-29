@@ -14,4 +14,4 @@ b SystemInit
 b main
 # interrupt
 # c
-# monitor reset halt
+monitor reset halt
