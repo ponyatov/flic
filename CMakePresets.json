@@ -21,7 +21,8 @@
                 "WFLAGS":     "-Wall -Wextra -Wpedantic",
                 "FSECTIONS":  "-fdata-sections -ffunction-sections",
                 "GCSECTIONS": "-Wl,--gc-sections",
-                "CMAKE_VERBOSE_MAKEFILE": true}
+                "CMAKE_VERBOSE_MAKEFILE": true
+            }
         },
         {
             "name": "cortexM4",
@@ -29,7 +30,8 @@
             "inherits": "cortexM",
             "cacheVariables": {
                 "MCPU": "-mcpu=cortex-m4",
-                "MFPU": "-mfpu=fpv4-sp-d16 -mfloat-abi=hard"
+                "MFPU": "-mfpu=fpv4-sp-d16 -mfloat-abi=hard",
+                "ARCH": "CortexM4"
             }
         },
         {
