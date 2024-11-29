@@ -11,12 +11,5 @@ $(LDS).fix: $(LDS)
 	patch $< 0000-$(LDS).patch
 	cp $< $@
 
-STARTUP = startup_stm32f407xx.s
-FIX += $(STARTUP).fix
-$(STARTUP).fix: $(STARTUP)
-	dos2unix $< *-$(STARTUP).patch
-	patch $< 0000-$(STARTUP).patch
-	cp $< $@
-
 .PHONY: fix
 fix: $(FIX)
