@@ -39,7 +39,7 @@
         {
             "name": "STM32L496G-DISCO",
             "inherits": "cortexM4",
-            "cacheVariables": {"HW":"STM32L496G-DISCO","CPU":"STM32L496AGI3"}
+            "cacheVariables": {"HW":"STM32L496G-DISCO","CPU":"STM32L496AGI"}
         },
         {
             "name": "linux",
