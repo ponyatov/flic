@@ -9,7 +9,7 @@ FIX += $(LDS).fix
 $(LDS).fix: $(LDS)
 	dos2unix $< *-$(LDS).patch
 	patch $< 0000-$(LDS).patch
-	cp $< $@
+	touch $@
 
 .PHONY: fix
 fix: $(FIX)
