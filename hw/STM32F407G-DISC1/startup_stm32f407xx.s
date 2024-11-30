@@ -59,7 +59,6 @@ defined in linker script */
   .type  Reset_Handler, %function
 Reset_Handler:  
   ldr   sp, =_estack     /* set stack pointer */
-  ldr   sp, =_ccmstack   /* to fast CCMRAM & leave top RAM for DMA */
 
 /* Call the clock system initialization function.*/
   bl  SystemInit  
