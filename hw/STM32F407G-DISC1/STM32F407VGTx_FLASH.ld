@@ -19,7 +19,7 @@ MEMORY
 {
 RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 128K
 CCMRAM (xrw)    : ORIGIN = 0x10000000, LENGTH = 64K
-FLASH (rx)      : ORIGIN = 0x8000000 , LENGTH = 1024K
+FLASH (rx)      : ORIGIN = 0x8000000,  LENGTH = 1024K
 }
 
 /* Define output sections */
@@ -122,7 +122,6 @@ SECTIONS
     _eccmram = .;       /* create a global symbol at ccmram end */
   } >CCMRAM AT> FLASH
 
-  
   /* Uninitialized data section */
   . = ALIGN(4);
   .bss :
@@ -150,8 +149,6 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
 
-  
-
   /* Remove information from the standard libraries */
   /DISCARD/ :
   {
@@ -159,5 +156,4 @@ SECTIONS
     libm.a ( * )
     libgcc.a ( * )
   }
-
 }
