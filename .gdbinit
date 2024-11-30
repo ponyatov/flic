@@ -6,7 +6,7 @@ set pagination off
 ## remote
 set tcp connect-timeout 1
 # set tcp auto-retry off
-target extended-remote :50000
+# target extended-remote :50000
 
 ## load
 b Reset_Handler

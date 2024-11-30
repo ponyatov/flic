@@ -38,8 +38,9 @@
                 "b Reset_Handler",
                 "b SystemInit",
                 "b main",
+                "interrupt",
+                "c",
                 "monitor reset halt"
-                // "c"
             ]
         }
     ]
