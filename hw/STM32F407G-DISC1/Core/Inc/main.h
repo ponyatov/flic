@@ -78,10 +78,14 @@ void Error_Handler(void);
 #define PH0_OSC_IN_GPIO_Port GPIOH
 #define PH1_OSC_OUT_Pin LL_GPIO_PIN_1
 #define PH1_OSC_OUT_GPIO_Port GPIOH
+#define LD4_GREEN_Pin LL_GPIO_PIN_12
+#define LD4_GREEN_GPIO_Port GPIOD
 #define JTMS_SWDIO_Pin LL_GPIO_PIN_13
 #define JTMS_SWDIO_GPIO_Port GPIOA
 #define JTCK_SWCLK_Pin LL_GPIO_PIN_14
 #define JTCK_SWCLK_GPIO_Port GPIOA
+#define JTDO_SWO_Pin LL_GPIO_PIN_3
+#define JTDO_SWO_GPIO_Port GPIOB
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */
