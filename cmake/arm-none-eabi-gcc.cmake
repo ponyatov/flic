@@ -62,3 +62,8 @@ include(cpu/${CPU}.cmake)
 set(TARGET ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME})
 set(TARGET_ELF ${TARGET}.elf)
 set(TARGET_HEX ${TARGET}.hex)
+
+# Validate that STM32CubeMX code is compatible with C standard
+if(CMAKE_C_STANDARD LESS 11)
+    message(ERROR "Generated code requires C11 or higher")
+endif()
