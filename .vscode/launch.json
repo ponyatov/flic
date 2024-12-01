@@ -49,7 +49,7 @@
             "request": "launch",
             "servertype": "openocd",
             "serverpath": "/usr/bin/openocd",
-            "executable": "${workspaceFolder}/ref/Espruino/bin/espruino_2v24_stm32f3discovery.elf",
+            "executable": "${workspaceFolder}/ref/Espruino/bin/espruino_2v24_stm32f4discovery.elf",
             "objdumpPath": "/usr/bin/arm-none-eabi-objdump",
             "gdbPath": "/usr/bin/gdb-multiarch",
             "cwd": "${workspaceFolder}/ref/Espruino",
@@ -58,8 +58,9 @@
                 "b Reset_Handler",
                 "b SystemInit",
                 "b main",
+                "interrupt",
+                "c",
                 "monitor reset halt"
-                // "c"
             ]
         }
     ]

@@ -1,3 +1,5 @@
+#!/usr/bin/make -f
+
 HW  = STM32F407VGT
 
 .PHONY: autopatch
