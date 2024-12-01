@@ -42,6 +42,25 @@
                 "c",
                 "monitor reset halt"
             ]
+        },
+        {
+            "name": "espruino",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "serverpath": "/usr/bin/openocd",
+            "executable": "${workspaceFolder}/ref/Espruino/bin/espruino_2v24_stm32f3discovery.elf",
+            "objdumpPath": "/usr/bin/arm-none-eabi-objdump",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "cwd": "${workspaceFolder}/ref/Espruino",
+            "configFiles": ["${workspaceFolder}/openocd.cfg"],
+            "postRestartCommands": [
+                "b Reset_Handler",
+                "b SystemInit",
+                "b main",
+                "monitor reset halt"
+                // "c"
+            ]
         }
     ]
 }
