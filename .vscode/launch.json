@@ -16,9 +16,11 @@
             "cwd": "${workspaceFolder}",
             "configFiles": ["${workspaceFolder}/openocd.cfg"],
             "postRestartCommands": [
-                "b Reset_Handler",
-                "b SystemInit",
+                // "b Reset_Handler",
+                // "b SystemInit",
                 "b main",
+                "b SystemClock_Config",
+                "b MX_GPIO_Init",
                 "monitor reset halt"
                 // "c"
             ]
