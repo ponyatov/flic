@@ -14,7 +14,12 @@ openocd: $(TMP)/$(HW)/$(MODULE).hex
 
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
-	$@-multiarch -q -x .gdbinit $<
+	$@-multiarch -q -x $(CWD)/.gdbinit $<
+
+.PHONY: esp
+esp: $(CWD)/ref/Espruino/bin/espruino_2v24_stm32f4discovery.elf
+	gdb-multiarch -q -x $(CWD)/.gdbinit $<
+# cd $(CWD)/ref/Espruino
 
 .PHONY: ddd
 ddd: tmp/$(HW)/$(MODULE).elf
