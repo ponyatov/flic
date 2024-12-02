@@ -1,6 +1,6 @@
 # debug
-REF += $(SWD)/README.md
-$(SWD)/README.md:
+REF += $(HOME)/stm32/ref/cmsis-svd-stm32/README.md
+$(HOME)/stm32/ref/cmsis-svd-stm32/README.md:
 	$(GITREF) $(GITURL)/cmsis-svd-stm32.git $(dir $@)
 
 .PHONY: flash
