@@ -25,3 +25,12 @@ esp: $(CWD)/ref/Espruino/bin/espruino_2v24_stm32f4discovery.elf
 ddd: tmp/$(HW)/$(MODULE).elf
 	ddd --debugger "gdb-multiarch -q -x .gdbinit" $<
 # -q -x .gdbinit $<
+
+.PHONY: iskra
+iskra:
+	cd ref/iskrajs ;\
+	BOARD=ISKRAJS DEBUG=1 make
+
+.PHONY: flash
+flash: ref/iskrajs/bin/horizon_2v22_241203_1705.bin
+	dfu-util --alt 0 --download ref/iskrajs/bin/horizon_2v22_241203_1705.bin --dfuse-address 0x08008000 --reset
