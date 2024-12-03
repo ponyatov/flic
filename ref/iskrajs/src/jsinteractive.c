@@ -864,8 +864,8 @@ void jsiSemiInit(bool autoLoad, JsfFileName *loadedFilename) {
 #if defined(HORIZON_LOGO)
           "\n"
           "Espruino " JS_VERSION " (c) 2022 G.Williams\n"
-          "HorizonPLC     (c) 2024 (с) Horizon Automations\n"
-          "              (by) firmware <dponyatov@gmail.com>\n"
+          "HorizonPLC    (c) 2024 Horizon Automations\n"
+          "             (by)   fw <dponyatov@gmail.com>\n"
 #elif defined(ISKRAJS_LOGO)
           "\n"
           "    ____       __                     __ _____\n"
