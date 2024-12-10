@@ -31,7 +31,7 @@ iskra:
 	cd ref/iskrajs ;\
 	BOARD=ISKRAJS DEBUG=1 make
 
-.PHONY: flash
-flash: ref/iskrajs/bin/horizon_2v22_241203_1747.bin
+.PHONY: dfu
+dfu: ref/iskrajs/bin/horizon_2v22_241203_1747.bin
 	dfu-util --alt 0 --download $< --dfuse-address 0x08008000 
 # --reset

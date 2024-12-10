@@ -6,4 +6,5 @@
 *.exe
 /docs/
 /doc/html/
+/target/
 !.gitignore

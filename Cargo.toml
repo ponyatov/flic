@@ -12,3 +12,8 @@ edition      = "2021"
 [dependencies]
 
 [[bin]]
+name="flic"
+path="src/flic.rs"
+
+[build]
+jobs = 1

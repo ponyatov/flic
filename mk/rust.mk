@@ -4,19 +4,11 @@ O += $(patsubst src/%.rl,tmp/%.o,$(wildcard src/%.rl))
 B  = $(patsubst src/%.rs,bin/%,$(R))
 
 .PHONY: rust
-rust: bin/FORTH
-	$^
+rust: target/debug/flic
+	cargo run
 
-bin/FORTH: $(O) 
-	echo $^
-
-tmp/%.o: tmp/%.rs lib/FORTH.ini
-	rustc -o $@ $<
-
-tmp/%.o: tmp/%.c
-	$(CC) -c -o $@ $<
-tmp/%.c: src/%.rl
-	ragel -L -G2 -o $@ $<
+target/debug/flic: $(R) Cargo.toml .cargo/*
+	cargo build
 
 tmp/format_rs: $(R)
-	rustfmt $? && touch $@
+	cargo check && cargo fmt && touch $@
