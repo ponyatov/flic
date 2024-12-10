@@ -2,11 +2,13 @@ R += $(wildcard src/*.rs)
 RS = $(R) Cargo.toml $(wildcard .cargo/*)
 
 .PHONY: rust
-rust: $(RS)
-	cargo run
+rust: $(BIN)/$(HW).elf
 
-target/debug/flic: $(RS)
-	cargo build
+$(BIN)/$(HW).elf: $(ROBJ)
+	$(TLD) -T$(LDS) -o $@ $^
 
 tmp/format_rs: $(R)
 	cargo check && cargo fmt && touch $@
+
+$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s
+	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<
