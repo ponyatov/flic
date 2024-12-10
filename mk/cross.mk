@@ -46,6 +46,6 @@ TXFLAGS += $(TAFLAGS) -std=gnu++17 -fno-rtti -fno-exceptions
 LDS      = $(CWD)/hw/$(HW)/$(CPU)Tx_FLASH.ld
 TLFLAGS += $(TCPU) -T$(LDS)
 TLFLAGS += --specs=nano.specs
-TLFLAGS += -Wl,-Map=$(BIN)/$(BINAME).map -Wl,--gc-sections
+TLFLAGS += -Wl,-Map=$(TMP)/$(HW)/$(MODULE).map -Wl,--gc-sections
 TLFLAGS += -Wl,--start-group -lc -lm -Wl,--end-group
 TLFLAGS += -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group
