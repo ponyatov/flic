@@ -42,7 +42,7 @@
         "ms-python.python",
         "ms-python.autopep8",
         // Rust
-        // "rust-lang.rust-analyzer",
-        // "tamasfe.even-better-toml",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
     ]
 }

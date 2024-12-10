@@ -1,0 +1,14 @@
+[package]
+name         = "flic"
+description  = "FORTH Language Inspired (byte)Code"
+version      = "0.0.1"
+authors      = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
+repository   = "https://github.com/ponyatov/rusl"
+license      = "MIT"
+readme       = "README.md"
+rust-version = "1.80"
+edition      = "2021"
+
+[dependencies]
+
+[[bin]]
