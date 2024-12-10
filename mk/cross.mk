@@ -1,23 +1,26 @@
 # cross
-HWINFO = tmp/hw.info
+HW ?= netduinoplus2
 
-ifeq (,$(wildcard $(HWINFO)))
-.PHONY: hwinfo
-hwinfo: $(HWINFO)
-DESCR = $(firstword $(subst /, ,$(shell st-info --descr)))
-$(HWINFO):
-	echo "STVER  ?= $(shell st-info --version)"  > $@
-	echo "FLASH  ?= $(shell st-info --flash  )" >> $@
-	echo "SRAM   ?= $(shell st-info --sram   )" >> $@
-	echo "SERIAL ?= $(shell st-info --serial )" >> $@
-	echo "CHIPID ?= $(shell st-info --chipid )" >> $@
-	echo "DESCR  ?= $(DESCR)"                   >> $@
-else
+# HWINFO = tmp/hw.info
 
-ifneq ($(HW),_)
-include      $(HWINFO)
-include   hw/$(DESCR)_$(CHIPID).mk
-endif
+# ifeq (,$(wildcard $(HWINFO)))
+# .PHONY: hwinfo
+# hwinfo: $(HWINFO)
+# DESCR = $(firstword $(subst /, ,$(shell st-info --descr)))
+# $(HWINFO):
+# 	echo "STVER  ?= $(shell st-info --version)"  > $@
+# 	echo "FLASH  ?= $(shell st-info --flash  )" >> $@
+# 	echo "SRAM   ?= $(shell st-info --sram   )" >> $@
+# 	echo "SERIAL ?= $(shell st-info --serial )" >> $@
+# 	echo "CHIPID ?= $(shell st-info --chipid )" >> $@
+# 	echo "DESCR  ?= $(DESCR)"                   >> $@
+# else
+
+# ifneq ($(HW),_)
+# include      $(HWINFO)
+# include   hw/$(DESCR)_$(CHIPID).mk
+# endif
+ifneq ($(HW)_,_)
 include   hw/$(HW).mk
 include  cpu/$(CPU).mk
 include arch/$(ARCH).mk

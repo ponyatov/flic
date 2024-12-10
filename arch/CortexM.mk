@@ -2,6 +2,7 @@ TARGET = arm-none-eabi
 APT   += gcc-$(TARGET) gdb-multiarch stlink-tools dfu-util qemu-system-arm
 OS    ?= _
 ROM    = 0x08000000
+QEMU   = qemu-system-arm
 
 # arch/CortexM
 CORE     = $(CWD)/cubemx/$(HW)/Core
