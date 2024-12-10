@@ -37,7 +37,7 @@ TSIZE = $(TARGET)-size
 TCOPY = $(TARGET)-objcopy
 
 # cfg
-TDEFS   += -D$(HW)
+TDEFS   += -D$(HW) -DDEBUG
 
 TAFLAGS += $(TCPU) $(TDEFS) -fdata-sections -ffunction-sections
 TCFLAGS += $(TAFLAGS) -std=gnu11

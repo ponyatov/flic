@@ -1,4 +1,4 @@
 include arch/CortexM.mk
 
-TCFLAGS += -mcpu=cortex-m4
-TCFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+TCPU += -mcpu=cortex-m4
+TCPU += -mfpu=fpv4-sp-d16 -mfloat-abi=hard
