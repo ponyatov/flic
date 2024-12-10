@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-CPU = STM32F407VG
+CPU = STM32F405RG
 LDS = $(CPU)Tx_FLASH.ld
 FIX = $(LDS).fix
 
