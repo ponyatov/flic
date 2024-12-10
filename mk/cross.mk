@@ -37,8 +37,15 @@ TSIZE = $(TARGET)-size
 TCOPY = $(TARGET)-objcopy
 
 # cfg
-TAFLAGS = -g3
-TOPT    = -O0
-TCFLAGS = $(TAFLAGS) $(TOPT) -std=gnu11
-TXFLAGS = $(TAFLAGS) $(TOPT) -std=gnu++17
-LDS     = $(CWD)/hw/$(HW)/$(CPU)Tx_FLASH.ld
+TDEFS   += -D$(HW)
+
+TAFLAGS += $(TCPU) $(TDEFS) -fdata-sections -ffunction-sections
+TCFLAGS += $(TAFLAGS) -std=gnu11
+TXFLAGS += $(TAFLAGS) -std=gnu++17 -fno-rtti -fno-exceptions
+
+LDS      = $(CWD)/hw/$(HW)/$(CPU)Tx_FLASH.ld
+TLFLAGS += $(TCPU) -T$(LDS)
+TLFLAGS += --specs=nano.specs
+TLFLAGS += -Wl,-Map=$(BIN)/$(BINAME).map -Wl,--gc-sections
+TLFLAGS += -Wl,--start-group -lc -lm -Wl,--end-group
+TLFLAGS += -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group

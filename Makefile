@@ -1,7 +1,8 @@
 include mk/var.mk
 include mk/version.mk
-include mk/cross.mk
 include mk/dirs.mk
+include mk/cross.mk
+BINAME = $(MODULE)_$(HW)_$(BRANCH)_$(REL)_$(NOW)
 include mk/tool.mk
 include mk/src.mk
 include mk/cmake.mk

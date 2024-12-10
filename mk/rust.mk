@@ -1,14 +1,11 @@
 R += $(wildcard src/*.rs)
 RS = $(R) Cargo.toml $(wildcard .cargo/*)
 
-.PHONY: rust
-rust: $(BIN)/$(HW).elf
+# CORE_SRC = $(CWD)/hw/$(HW)/Core/Src
+# ROBJ     = $(patsubst $(CORE_SRC)/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(CORE_SRC)/*.c*))
 
-$(BIN)/$(HW).elf: $(ROBJ)
-	$(TLD) -T$(LDS) -o $@ $^
+.PHONY: rust
+rust: $(BIN)/$(BINAME).elf
 
 tmp/format_rs: $(R)
 	cargo check && cargo fmt && touch $@
-
-$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s
-	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<

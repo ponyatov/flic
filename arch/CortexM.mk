@@ -5,22 +5,22 @@ ROM    = 0x08000000
 QEMU   = qemu-system-arm
 
 # arch/CortexM
-CORE     = $(CWD)/cubemx/$(HW)/Core
-TCFLAGS += -I$(CORE)/Inc
-OBJ     += $(patsubst $(CORE)/Src/%.c,$(TMP)/core_%.o,$(wildcard $(CORE)/Src/*.c*))
 
-CMSIS = $(CWD)/cubemx/STM32F407G-DISC1/Drivers/CMSIS
-TCFLAGS += -I$(CMSIS)/Device/ST/STM32F4xx/Include
-TCFLAGS += -I$(CMSIS)/Include
+TCPU    += -mthumb
 
-TCFLAGS += -mthumb
+CORE     = $(CWD)/hw/$(HW)/Core
+TAFLAGS += -I$(CORE)/Inc
+TOBJ    += $(patsubst $(CORE)/Src/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(CORE)/Src/*.c))
 
-TLFLAGS += --specs=nano.specs
-TLFLAGS += -Wl,-Map=$(BIN)/$(MODULE)_$(HW).map -Wl,--gc-sections
-TLFLAGS += -Wl,--start-group -lc -lm -Wl,--end-group
+DRIVERS  = $(CWD)/hw/$(HW)/Drivers
 
-# TXFLAGS += -fno-rtti -fno-exceptions
-# TLFLAGS += -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group"
+HALDRV   = $(DRIVERS)/$(SERIES)xx_HAL_Driver
+TAFLAGS += -I$(HALDRV)/Inc
+TOBJ    += $(patsubst $(HALDRV)/Src/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(HALDRV)/Src/*.c))
+
+CMSISDRV = $(DRIVERS)/CMSIS
+TAFLAGS += -I$(CMSISDRV)/Device/$(VENDOR)/$(SERIES)xx/Include
+TAFLAGS += -I$(CMSISDRV)/Include
 
 # tool: CubeMX binary path
 CUBEMX ?= $(HOME)/STM32/CubeMX/STM32CubeMX

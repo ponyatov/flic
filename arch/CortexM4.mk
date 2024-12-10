@@ -1,7 +1,16 @@
 include arch/CortexM.mk
 
-TCFLAGS += -mcpu=cortex-m4
-TCFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+TCPU += -mcpu=cortex-m4
+TCPU += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 
-HAL = $(CWD)/cubemx/$(HW)/Drivers/STM32F4xx_HAL_Driver
-TCFLAGS += -I$(HAL)/Inc
+SERIES = STM32F4
+
+TDEFS += -DUSE_FULL_LL_DRIVER
+TDEFS += -DHSE_STARTUP_TIMEOUT=100
+TDEFS += -DLSE_STARTUP_TIMEOUT=5000
+TDEFS += -DHSI_VALUE=16000000
+TDEFS += -DLSI_VALUE=32000
+TDEFS += -DVDD_VALUE=3300
+TDEFS += -DPREFETCH_ENABLE=1
+TDEFS += -DINSTRUCTION_CACHE_ENABLE=1
+TDEFS += -DDATA_CACHE_ENABLE=1

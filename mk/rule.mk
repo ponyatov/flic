@@ -38,3 +38,13 @@ hex: tmp/$(HW)/$(MODULE).hex
 bin: tmp/$(HW)/$(MODULE).bin
 %.bin: %.elf
 	$(TARGET)-objcopy -O binary $< $@
+
+# cross
+$(BIN)/$(BINAME).elf: $(TOBJ)
+	$(TLD) $(TLFLAGS) -o $@ $^ && file $@ && $(TSIZE) $@
+$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s
+	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<
+$(TMP)/$(HW)/%.o: $(CORE)/Src/%.c
+	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
+$(TMP)/$(HW)/%.o: $(HALDRV)/Src/%.c
+	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
