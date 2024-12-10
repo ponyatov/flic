@@ -35,3 +35,7 @@ iskra:
 dfu: ref/iskrajs/bin/horizon_2v22_241203_1747.bin
 	dfu-util --alt 0 --download $< --dfuse-address 0x08008000 
 # --reset
+
+.PHONY: qemu
+qemu: $(TMP)/$(HW)/$(MODULE).elf
+	$(QEMU) $(QEMU_CFG) -nographic -kernel $< -S -s

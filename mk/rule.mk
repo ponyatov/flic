@@ -40,7 +40,9 @@ bin: tmp/$(HW)/$(MODULE).bin
 	$(TARGET)-objcopy -O binary $< $@
 
 # cross
-$(BIN)/$(BINAME).elf: $(TOBJ)
+$(BIN)/$(BINAME).elf: $(TMP)/$(HW)/$(MODULE).elf
+	cp $< $@
+$(TMP)/$(HW)/$(MODULE).elf: $(TOBJ)
 	$(TLD) $(TLFLAGS) -o $@ $^ && file $@ && $(TSIZE) $@
 $(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s
 	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<

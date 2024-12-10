@@ -17,4 +17,3 @@ include mk/ref.mk
 include mk/install.mk
 include mk/merge.mk
 include mk/rust.mk
-include mk/qemu.mk
