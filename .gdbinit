@@ -4,8 +4,8 @@ set height 0
 set pagination off
 
 ## remote
-# set tcp connect-timeout 1
-# set tcp auto-retry off
+set tcp connect-timeout 1
+set tcp auto-retry off
 target extended-remote :1234
 
 # mon shutdown
@@ -14,15 +14,16 @@ target extended-remote :1234
 # ## manual run
 # # set height 10
 # # set pagination on
-# layout src
+layout src
 # layout asm
 # layout reg
 # # set substitute-path /home/dponyatov/flic/ ./
 # # set substitute-path /home/pere/src/newlib-salsa /home/dponyatov/stm32/ref/newlib-salsa
 # ## on load
-# # b Reset_Handler
-# # b SystemInit
-# # b main
+b Reset_Handler
+b SystemInit
+b main
+c
 # # interrupt
-# # c
-# # monitor reset halt
+# # 
+# monitor reset halt

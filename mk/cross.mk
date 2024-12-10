@@ -38,8 +38,9 @@ TCOPY = $(TARGET)-objcopy
 
 # cfg
 TDEFS   += -D$(HW) -DDEBUG
+TOPT     = -O0 -g3
 
-TAFLAGS += $(TCPU) $(TDEFS) -fdata-sections -ffunction-sections
+TAFLAGS += $(TCPU) $(TDEFS) $(TOPT) -fdata-sections -ffunction-sections
 TCFLAGS += $(TAFLAGS) -std=gnu11
 TXFLAGS += $(TAFLAGS) -std=gnu++17 -fno-rtti -fno-exceptions
 
