@@ -1,17 +1,10 @@
 #!/usr/bin/make -f
 
-CPU  = STM32F407VGT
+CPU = STM32F407VG
+LDS = $(CPU)Tx_FLASH.ld
+FIX = $(LDS).fix
 
-.PHONY: autopatch
-autopatch:
-	$(MAKE) fix
-
-LDS = $(CPU)x_FLASH.ld
-FIX += $(LDS).fix
-$(LDS).fix: $(LDS)
-	dos2unix $< *-$(LDS).patch
-	patch $< 0000-$(LDS).patch
+$(FIX): $(LDS)
+	dos2unix *
+	patch $< *$(LDS).patch
 	touch $@
-
-.PHONY: fix
-fix: $(FIX)
