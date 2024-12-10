@@ -1,13 +1,11 @@
 R += $(wildcard src/*.rs)
-O  = $(patsubst src/%.rs,tmp/%.o,$(R))
-O += $(patsubst src/%.rl,tmp/%.o,$(wildcard src/%.rl))
-B  = $(patsubst src/%.rs,bin/%,$(R))
+RS = $(R) Cargo.toml $(wildcard .cargo/*)
 
 .PHONY: rust
-rust: target/debug/flic
+rust: $(RS)
 	cargo run
 
-target/debug/flic: $(R) Cargo.toml .cargo/*
+target/debug/flic: $(RS)
 	cargo build
 
 tmp/format_rs: $(R)

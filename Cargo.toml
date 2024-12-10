@@ -3,13 +3,24 @@ name         = "flic"
 description  = "FORTH Language Inspired (byte)Code"
 version      = "0.0.1"
 authors      = ["Dmitry Ponyatov <dponyatov@gmail.com>"]
-repository   = "https://github.com/ponyatov/rusl"
+repository   = "https://github.com/ponyatov/flic"
 license      = "MIT"
+keywords     = ["FORTH", "CLI", "REPL", "MCU", "STM32", "Cortex-M"]
+categories   = ["Command-line interface", "Compilers", "Embedded development",
+                "No standard library", "Operating systems"]
 readme       = "README.md"
 rust-version = "1.80"
 edition      = "2021"
 
 [dependencies]
+
+[dev-dependencies]
+
+[target.'cfg(unix)'.dependencies]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+
+[target.'cfg(target_arch = "arm-none-eabi")'.dependencies]
 
 [[bin]]
 name="flic"
@@ -17,3 +28,6 @@ path="src/flic.rs"
 
 [build]
 jobs = 1
+
+[install]
+root = "/some/path"
