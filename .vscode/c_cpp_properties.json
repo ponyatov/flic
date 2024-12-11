@@ -16,8 +16,8 @@
             "defines": [
                 "STM32F407xx", "QEMU", "USE_FULL_LL_DRIVER"
             ],
-            "cStandard": "c11",
-            "cppStandard": "c++17",
+            "cStandard": "gnu11",
+            "cppStandard": "gnu++17",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/arm-none-eabi-gcc"
         }
