@@ -1,5 +1,5 @@
 # cross
-HW ?= netduinoplus2
+HW ?= duino
 
 # HWINFO = tmp/hw.info
 
