@@ -13,13 +13,13 @@ rust-version = "1.80"
 edition      = "2021"
 
 [dependencies]
+cortex-m-rt = "0.7.5"
 
 [dev-dependencies]
 
 [target.'cfg( unix )'.dependencies]
 
 [target.'cfg(target_arch= "thumbv7em-none-eabihf" )'.dependencies]
-cortex-m-rt = "0.7.5"
 
 [[bin]]
 name="flic"

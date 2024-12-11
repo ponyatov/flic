@@ -9,4 +9,4 @@ rust:
 	cargo check
 
 tmp/format_rs: $(R)
-	cargo check && cargo fmt && touch $@
+	cargo fmt && touch $@

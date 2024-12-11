@@ -3,6 +3,11 @@
 #![no_std]
 #![no_main]
 
-fn main() {
+// use panic_halt as _;
+
+use cortex_m_rt::entry;
+
+#[entry]
+unsafe fn main() -> ! {
     // println!("Hello, world!");
 }
