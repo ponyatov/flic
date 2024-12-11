@@ -23,7 +23,7 @@ layout src
 b Reset_Handler
 b SystemInit
 b main
-c
+# c
 # # interrupt
 # # 
 # monitor reset halt
