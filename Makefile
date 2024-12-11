@@ -9,6 +9,7 @@ include mk/cmake.mk
 include mk/package.mk
 include mk/cfg.mk
 include mk/all.mk
+include mk/clean.mk
 include mk/format.mk
 include mk/rule.mk
 include mk/debug.mk
