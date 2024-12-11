@@ -7,11 +7,11 @@
                 "${workspaceFolder}/inc/**",
                 "${workspaceFolder}/tmp/**",
                 "${workspaceFolder}/src/**",
-                "${workspaceFolder}/hw/STM32F407G-DISC1/Drivers/CMSIS/Include",
-                "${workspaceFolder}/hw/STM32F407G-DISC1/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
+                "${workspaceFolder}/hw/duino/Drivers/CMSIS/Include",
+                "${workspaceFolder}/hw/duino/Drivers/CMSIS/Device/ST/STM32F4xx/Include"
             ],
             "forcedInclude": [
-                "${workspaceFolder}/hw/STM32F407G-DISC1/Drivers/CMSIS/Include/core_cm4.h"
+                "${workspaceFolder}/hw/duino/Drivers/CMSIS/Include/core_cm4.h"
             ],
             "defines": [
                 "STM32F407xx", "QEMU", "USE_FULL_LL_DRIVER"
