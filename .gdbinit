@@ -4,7 +4,7 @@ set height 0
 set pagination off
 
 ## remote
-set tcp connect-timeout 1
+set tcp connect-timeout 1111
 set tcp auto-retry off
 target extended-remote :1234
 
