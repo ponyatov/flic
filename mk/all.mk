@@ -4,3 +4,6 @@ run: bin/$(MODULE)_$(HW) $(F)
 	$^
 host:
 	$(shell HW=_ make run)
+
+.PHONY: elf
+elf: $(TMP)/$(HW)/$(MODULE).elf
