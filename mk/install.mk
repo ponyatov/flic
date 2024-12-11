@@ -3,7 +3,7 @@
 install: doc ref gz
 	$(MAKE) update
 	rustup target add thumbv7em-none-eabihf
-	rustup component add rustfmt rust-analyzer
+	rustup component add rustfmt rust-analyzer llvm-tools
 update:
 	sudo apt update
 	sudo apt install -uy `cat apt.$(shell lsb_release -si)` $(APT)
