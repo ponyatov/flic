@@ -14,6 +14,7 @@ edition      = "2021"
 
 [dependencies]
 cortex-m-rt = "0.7.5"
+panic-halt = "1.0.0"
 
 [dev-dependencies]
 
@@ -24,9 +25,3 @@ cortex-m-rt = "0.7.5"
 [[bin]]
 name="flic"
 path="src/flic.rs"
-
-[build]
-jobs = 1
-
-[install]
-root = "/some/path"

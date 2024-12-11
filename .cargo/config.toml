@@ -1,0 +1,7 @@
+# https://youtu.be/TOAynddiu5M?si=bECN6n9yf5ZRuO2y&t=692
+
+[build]
+target = "thumbv7em-none-eabihf"
+
+[target.thumbv7em-none-eabihf]
+rustflags = ["-C","link-arg=-Tlink.x"]

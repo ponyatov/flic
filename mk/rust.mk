@@ -4,12 +4,13 @@ RS = $(R) Cargo.toml $(wildcard .cargo/*)
 # CORE_SRC = $(CWD)/hw/$(HW)/Core/Src
 # ROBJ     = $(patsubst $(CORE_SRC)/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(CORE_SRC)/*.c*))
 
-TRIPLET = thumbv7em-none-eabihf
+# TRIPLET = thumbv7em-none-eabihf
 
 .PHONY: rust
 rust:
-	cargo rustc --target $(TRIPLET) -- \
-		-C link-arg=-nostartfiles -C link-arg=-Tlink.x
+	cargo check
+#	cargo rustc --target $(TRIPLET) -- \
+#		-C link-arg=-nostartfiles -C link-arg=-Tlink.x
 
 tmp/format_rs: $(R)
 	cargo fmt && touch $@
