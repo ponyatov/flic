@@ -11,16 +11,20 @@ TCPU    += -mthumb
 CORE     = $(CWD)/hw/$(HW)/Core
 TAFLAGS += -I$(CORE)/Inc
 TOBJ    += $(patsubst $(CORE)/Src/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(CORE)/Src/*.c))
+H       += $(wildcard $(CORE)/Inc/*.h)
 
 DRIVERS  = $(CWD)/hw/$(HW)/Drivers
 
 HALDRV   = $(DRIVERS)/$(SERIES)xx_HAL_Driver
 TAFLAGS += -I$(HALDRV)/Inc
 TOBJ    += $(patsubst $(HALDRV)/Src/%.c,$(TMP)/$(HW)/%.o,$(wildcard $(HALDRV)/Src/*.c))
+H       += $(wildcard $(HALDRV)/Inc/*.h)
 
 CMSISDRV = $(DRIVERS)/CMSIS
 TAFLAGS += -I$(CMSISDRV)/Device/$(VENDOR)/$(SERIES)xx/Include
 TAFLAGS += -I$(CMSISDRV)/Include
+H       += $(wildcard $(CMSISDRV)/Device/$(VENDOR)/$(SERIES)xx/Include/*.h)
+H       += $(wildcard $(CMSISDRV)/Include/*.h)
 
 # tool: CubeMX binary path
 CUBEMX ?= $(HOME)/STM32/CubeMX/STM32CubeMX

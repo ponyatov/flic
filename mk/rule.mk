@@ -44,9 +44,9 @@ $(BIN)/$(BINAME).elf: $(TMP)/$(HW)/$(MODULE).elf
 	cp $< $@
 $(TMP)/$(HW)/$(MODULE).elf: $(TOBJ)
 	$(TLD) $(TLFLAGS) -o $@ $^ && file $@ && $(TSIZE) $@
-$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s
+$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s $(H)
 	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<
-$(TMP)/$(HW)/%.o: $(CORE)/Src/%.c
+$(TMP)/$(HW)/%.o: $(CORE)/Src/%.c $(H)
 	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
-$(TMP)/$(HW)/%.o: $(HALDRV)/Src/%.c
+$(TMP)/$(HW)/%.o: $(HALDRV)/Src/%.c $(H)
 	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<

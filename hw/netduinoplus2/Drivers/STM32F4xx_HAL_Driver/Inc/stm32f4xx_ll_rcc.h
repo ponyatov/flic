@@ -2969,7 +2969,11 @@ __STATIC_INLINE void LL_RCC_HSE_Disable(void)
   */
 __STATIC_INLINE uint32_t LL_RCC_HSE_IsReady(void)
 {
+    #ifndef netduinoplus2
   return (READ_BIT(RCC->CR, RCC_CR_HSERDY) == (RCC_CR_HSERDY));
+  #else
+  return 1==1;
+  #endif
 }
 
 /**
@@ -7098,4 +7102,3 @@ uint32_t    LL_RCC_GetDSIClockFreq(uint32_t DSIxSource);
 #endif
 
 #endif /* __STM32F4xx_LL_RCC_H */
-

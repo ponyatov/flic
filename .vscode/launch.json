@@ -16,13 +16,14 @@
             "miDebuggerArgs": "--silent",
             "miDebuggerServerAddress": ":1234",
             "useExtendedRemote": true,
-            "serverLaunchTimeout": 3000,
+            // "serverLaunchTimeout": 300,
             // "debugServerPath": "qemu-system-arm",
-            // "debugServerArgs": "-M netduinoplus2 -cpu cortex-m4 -S -s",
+            // "debugServerArgs": "-M netduinoplus2 -cpu cortex-m4 -nographic -S -s",
             "postRemoteConnectCommands": [
-                // {"text": "load"},
+                {"text": "load"},
                 {"text": "b Reset_Handler"},
                 {"text": "b SystemInit"},
+                {"text": "b SystemClock_Config"},
             ]
         },
         {
