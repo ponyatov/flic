@@ -25,7 +25,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx.h"
-#include <stdbool.h>
 
 /** @addtogroup STM32F4xx_LL_Driver
   * @{
@@ -2968,12 +2967,9 @@ __STATIC_INLINE void LL_RCC_HSE_Disable(void)
   * @rmtoll CR           HSERDY        LL_RCC_HSE_IsReady
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_RCC_HSE_IsReady(void) {
-#ifndef QEMU
-    return (READ_BIT(RCC->CR, RCC_CR_HSERDY) == (RCC_CR_HSERDY));
-#else
-    return true;
-#endif
+__STATIC_INLINE uint32_t LL_RCC_HSE_IsReady(void)
+{
+  return (READ_BIT(RCC->CR, RCC_CR_HSERDY) == (RCC_CR_HSERDY));
 }
 
 /**
@@ -3206,12 +3202,9 @@ __STATIC_INLINE void LL_RCC_SetSysClkSource(uint32_t Source)
   *
   *         (*) value not defined in all devices.
   */
-__STATIC_INLINE uint32_t LL_RCC_GetSysClkSource(void) {
-#ifndef QEMU
-    return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_SWS));
-#else
-    return LL_RCC_SYS_CLKSOURCE_STATUS_HSE;
-#endif
+__STATIC_INLINE uint32_t LL_RCC_GetSysClkSource(void)
+{
+  return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_SWS));
 }
 
 /**
@@ -7105,3 +7098,4 @@ uint32_t    LL_RCC_GetDSIClockFreq(uint32_t DSIxSource);
 #endif
 
 #endif /* __STM32F4xx_LL_RCC_H */
+
