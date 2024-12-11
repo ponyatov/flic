@@ -8,6 +8,7 @@
 use cortex_m_rt::entry;
 
 #[entry]
-unsafe fn main() -> ! {
+fn main() -> ! {
     // println!("Hello, world!");
+    loop {}
 }
