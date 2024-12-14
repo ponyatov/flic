@@ -13,8 +13,14 @@ target extended-remote :1234
 
 ## on load
 # monitor reset halt
-# b Reset_Handler
-b *0x8000000
-jump *0x8000000
+# b *0x8000400
+# jump *0x8000400
+b Reset
 # b SystemInit
 # b main
+
+# layout src
+layout asm
+layout reg
+# set substitute-path /home/dponyatov/flic/ ./
+# set substitute-path /home/pere/src/newlib-salsa /home/dponyatov/stm32/ref/newlib-salsa

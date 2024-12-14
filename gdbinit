@@ -17,10 +17,7 @@ b Reset_Handler
 b SystemInit
 b main
 
-# ## manual run
-# # set height 10
-# # set pagination on
-layout src
+# layout src
 # layout asm
 # layout reg
 # # set substitute-path /home/dponyatov/flic/ ./
