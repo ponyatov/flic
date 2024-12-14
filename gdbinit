@@ -11,6 +11,12 @@ target extended-remote :1234
 # mon shutdown
 # mon exit
 
+## on load
+monitor reset halt
+b Reset_Handler
+b SystemInit
+b main
+
 # ## manual run
 # # set height 10
 # # set pagination on

@@ -32,7 +32,7 @@
         "*.mk": "makefile", "hw.info": "makefile",
         "*.ioc": "ini",
         "*.s": "arm", "*.S": "arm", "*.ld*": "linkerscript",
-        ".gdbinit": "properties", "*.cfg": "properties",
+        "*.gdbinit": "properties", "*.openocd": "properties",
         "*.code-profile": "javascript"
     },
 

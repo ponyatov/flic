@@ -36,6 +36,12 @@ dfu: ref/iskrajs/bin/horizon_2v22_241203_1747.bin
 	dfu-util --alt 0 --download $< --dfuse-address 0x08008000 
 # --reset
 
+RUSTELF = $(CWD)/target/$(RUSTARGET)/debug/$(MODULE)
+
 .PHONY: qemu
-qemu: $(TMP)/$(HW)/$(MODULE).elf
+qemu: $(RUSTELF)
 	$(QEMU) $(QEMU_CFG) -nographic -kernel $< -S -s
+
+.PHONY: qdb
+qdb: $(RUSTELF)
+	gdb-multiarch -x hw/duino.gdbinit -s $< -e $<

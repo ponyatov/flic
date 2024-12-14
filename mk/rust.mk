@@ -8,9 +8,13 @@ RS = $(R) Cargo.toml $(wildcard .cargo/*)
 
 .PHONY: rust
 rust:
-	cargo build
+	cargo build && cargo size
 #	cargo rustc --target $(TRIPLET) -- \
 #		-C link-arg=-nostartfiles -C link-arg=-Tlink.x
 
 tmp/format_rs: $(R)
 	cargo fmt && touch $@
+
+.PHONY: size
+size:
+	cargo size -- -Ax

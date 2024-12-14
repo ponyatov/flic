@@ -8,7 +8,7 @@
             "name": "QEMU",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/tmp/netduinoplus2/flic.elf",
+            "program": "${workspaceRoot}/target/thumbv7em-none-eabihf/debug/${workspaceFolderBasename}",
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
             "MIMode": "gdb",
@@ -21,9 +21,9 @@
             // "debugServerArgs": "-M netduinoplus2 -cpu cortex-m4 -nographic -S -s",
             "postRemoteConnectCommands": [
                 {"text": "load"},
-                // {"text": "b Reset_Handler"},
+                {"text": "b *0xb8000000"},
                 // {"text": "b SystemInit"},
-                {"text": "b SystemClock_Config"},
+                // {"text": "b SystemClock_Config"},
                 // {"text": "c"},
             ]
         },
