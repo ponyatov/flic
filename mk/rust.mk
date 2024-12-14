@@ -17,4 +17,5 @@ tmp/format_rs: $(R)
 
 .PHONY: size
 size:
-	cargo size -- -Ax
+	cargo size -- -x
+# cargo size -- -Ax
