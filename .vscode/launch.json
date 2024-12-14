@@ -21,7 +21,8 @@
             // "debugServerArgs": "-M netduinoplus2 -cpu cortex-m4 -nographic -S -s",
             "postRemoteConnectCommands": [
                 {"text": "load"},
-                {"text": "b *0xb8000000"},
+                {"text": "b *0x8000000"},
+                {"text": "jump *0x8000000"},
                 // {"text": "b SystemInit"},
                 // {"text": "b SystemClock_Config"},
                 // {"text": "c"},

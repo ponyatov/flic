@@ -15,5 +15,6 @@ target extended-remote :1234
 # monitor reset halt
 # b Reset_Handler
 b *0x8000000
+jump *0x8000000
 # b SystemInit
 # b main
