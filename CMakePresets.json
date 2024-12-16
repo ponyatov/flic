@@ -43,6 +43,14 @@
                 "HAL": "STM32F4"}
         },
         {
+            "name": "F4DISCO",
+            "inherits": "cortexM4",
+            "cacheVariables": {
+                 "HW": "F4DISCO",
+                "CPU": "STM32F407VGT",
+                "HAL": "STM32F4"}
+        },
+        {
             "name": "STM32L496G-DISCO",
             "inherits": "cortexM4",
             "cacheVariables": {
@@ -69,5 +77,6 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/bin/${presetName}",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
-        }    ]
+        }
+    ]
 }

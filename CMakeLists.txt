@@ -9,10 +9,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CWD ${CMAKE_SOURCE_DIR})
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CWD}/cmake)
+set(BIN ${CWD}/bin)
 set(INC ${CWD}/inc)
 set(SRC ${CWD}/src)
 set(TMP ${CWD}/tmp)
 
+file(GLOB_RECURSE LD
+    "${CWD}/hw/${HW}/*.ld"
+)
 file(GLOB_RECURSE A
     "${SRC}/*.s*"
     "${CWD}/hw/${HW}/*.s"
@@ -31,7 +35,7 @@ file(GLOB_RECURSE H
 )
 
 include_directories(
-    ${INC} ${TMP}
+    ${INC} ${TMP} ${SRC}
     "${CWD}/hw/${HW}/Core/Inc"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Include"
     "${CWD}/hw/${HW}/Drivers/CMSIS/Device/ST/${HAL}xx/Include"
@@ -54,8 +58,16 @@ message("-- toolchain: " ${CMAKE_TOOLCHAIN_FILE})
 message("--   startup: " ${A})
 
 add_executable(${CMAKE_PROJECT_NAME}
-    ${C} ${H} ${A}
+    ${C} ${H} ${A} ${LD}
     # ${FLEX_lex_OUTPUTS} ${BISON_yacc_OUTPUTS}
 )
 
 target_link_libraries(${PROJECT_NAME})
+
+include(version)
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME ${CMAKE_PROJECT_NAME})
+# install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(
+    PROGRAMS ${TMP}/${HW}/${CMAKE_PROJECT_NAME}.elf
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+    RENAME ${BIN_OUTPUT_NAME}.elf)

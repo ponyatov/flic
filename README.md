@@ -11,7 +11,7 @@ github: https://github.com/ponyatov/flic
 ## Targets
 
 - @ref STM32
-    - @ref STM32F4DISCOVERY
+    - #ref F4DISCO = @ref STM32F4DISCOVERY
     - @ref STM32F407G-DISC1
     - @ref pillF103
     - @ref pillF030

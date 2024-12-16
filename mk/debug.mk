@@ -9,8 +9,8 @@ flash: $(TMP)/$(HW)/$(MODULE).bin
 # --connect-under-reset
 
 .PHONY: openocd
-openocd: $(TMP)/$(HW)/$(MODULE).hex
-	$@ -f openocd.cfg
+openocd: $(ELF)
+	$@ -f $(CWD)/$(HW)/$(HW).openocd -c "program $(TMP)/$(HW)/$(MODULE).elf verify reset"
 
 .PHONY: gdb
 gdb: $(TMP)/$(HW)/$(MODULE).elf
@@ -26,15 +26,10 @@ ddd: tmp/$(HW)/$(MODULE).elf
 	ddd --debugger "gdb-multiarch -q -x .gdbinit" $<
 # -q -x .gdbinit $<
 
-.PHONY: iskra
-iskra:
-	cd ref/iskrajs ;\
-	BOARD=ISKRAJS DEBUG=1 make
-
 .PHONY: dfu
-dfu: ref/iskrajs/bin/horizon_2v22_241203_1747.bin
-	dfu-util --alt 0 --download $< --dfuse-address 0x08008000 
-# --reset
+dfu: $(DFU)
+	dfu-util --alt 0 --download $< --reset
+# --dfuse-address 0x08008000 
 
 RUSTELF = $(CWD)/target/$(RUSTARGET)/debug/$(MODULE)
 

@@ -40,13 +40,16 @@ bin: tmp/$(HW)/$(MODULE).bin
 	$(TARGET)-objcopy -O binary $< $@
 
 # cross
-$(BIN)/$(BINAME).elf: $(TMP)/$(HW)/$(MODULE).elf
+$(BIN)/$(BINAME).elf: $(ELF)
 	cp $< $@
-$(TMP)/$(HW)/$(MODULE).elf: $(TOBJ)
-	$(TLD) $(TLFLAGS) -o $@ $^ && file $@ && $(TSIZE) $@
-$(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s $(H)
-	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<
-$(TMP)/$(HW)/%.o: $(CORE)/Src/%.c $(H)
-	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
-$(TMP)/$(HW)/%.o: $(HALDRV)/Src/%.c $(H)
-	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
+# $(TMP)/$(HW)/$(MODULE).elf: $(TOBJ)
+# 	$(TLD) $(TLFLAGS) -o $@ $^ && file $@ && $(TSIZE) $@
+# $(TMP)/$(HW)/%.o: $(CWD)/hw/$(HW)/%.s $(H)
+# 	mkdir -p $(TMP)/$(HW) ; $(TAS) $(TAFLAGS) -o $@ -c $<
+# $(TMP)/$(HW)/%.o: $(CORE)/Src/%.c $(H)
+# 	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
+# $(TMP)/$(HW)/%.o: $(HALDRV)/Src/%.c $(H)
+# 	mkdir -p $(TMP)/$(HW) ; $(TCC) $(TCFLAGS) -o $@ -c $<
+
+$(DFU): $(ELF)
+	~/elf2dfuse/bin/elf2dfuse $< $@

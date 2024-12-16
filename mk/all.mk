@@ -1,9 +1,9 @@
 .PHONY: all run host
-all: bin/$(MODULE)_$(HW) $(F)
-run: bin/$(MODULE)_$(HW) $(F)
-	$^
+all: $(ELF) $(F)
+run: $(ELF) $(F)
 host:
 	$(shell HW=_ make run)
 
 .PHONY: elf
-elf: $(TMP)/$(HW)/$(MODULE).elf
+elf: $(ELF)
+	echo $<

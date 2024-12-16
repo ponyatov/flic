@@ -1,0 +1,15 @@
+[package]
+name    = "dsp"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+
+[dependencies.num]
+version = "0.4.3"
+default-features = false
+features = ["libm"]
+
+[[bin]]
+name = "dsp"
+path = "main.rs"
