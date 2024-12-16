@@ -10,15 +10,15 @@ flash: $(TMP)/$(HW)/$(MODULE).bin
 
 .PHONY: openocd
 openocd: $(ELF)
-	$@ -f $(CWD)/$(HW).openocd -c "program $(TMP)/$(HW)/$(MODULE).elf verify reset"
+	$@ -f $(CWD)/hw/$(HW).openocd -c "program $(TMP)/$(HW)/$(MODULE).elf verify reset"
 
 .PHONY: gdb
 gdb: $(ELF)
-	$@-multiarch -q -x $(CWD)/$(HW).gdbinit $<
+	$@-multiarch -q -x $(CWD)/hw/$(HW).gdbinit $<
 
 .PHONY: esp
 esp: $(CWD)/ref/Espruino/bin/espruino_2v24_stm32f4discovery.elf
-	gdb-multiarch -q -x $(CWD)/.gdbinit $<
+	gdb-multiarch -q -x $(CWD)/hw/$(HW).gdbinit $<
 # cd $(CWD)/ref/Espruino
 
 .PHONY: ddd
