@@ -7,3 +7,6 @@ host:
 .PHONY: elf
 elf: $(ELF)
 	echo $<
+
+$(RUSTELF): $(RS)
+	cargo build

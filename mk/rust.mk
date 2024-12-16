@@ -7,8 +7,8 @@ RS = $(R) Cargo.toml $(wildcard .cargo/*)
 # TRIPLET = thumbv7em-none-eabihf
 
 .PHONY: rust
-rust:
-	cargo build && cargo size
+rust: 
+	cargo build && cargo size && cargo run
 #	cargo rustc --target $(TRIPLET) -- \
 #		-C link-arg=-nostartfiles -C link-arg=-Tlink.x
 

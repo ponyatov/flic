@@ -12,8 +12,8 @@ readme       = "README.md"
 rust-version = "1.80"
 edition      = "2021"
 
-[workspace]
-members = ["dsp"]
+# [workspace]
+# members = ["dsp"]
 
 [dependencies]
 cortex-m-rt = "0.7.5"

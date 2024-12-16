@@ -51,6 +51,14 @@
                 "HAL": "STM32F4"}
         },
         {
+            "name": "duino",
+            "inherits": "cortexM4",
+            "cacheVariables": {
+                 "HW": "duino",
+                "CPU": "STM32F405RG",
+                "HAL": "STM32F4"}
+        },
+        {
             "name": "STM32L496G-DISCO",
             "inherits": "cortexM4",
             "cacheVariables": {

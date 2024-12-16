@@ -39,4 +39,4 @@ qemu: $(RUSTELF)
 
 .PHONY: qdb
 qdb: $(RUSTELF)
-	gdb-multiarch -x hw/duino.gdbinit -s $< -e $<
+	gdb-multiarch -x hw/duino.gdbinit -se $<
