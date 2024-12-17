@@ -34,7 +34,7 @@ c
 # # # # # set height 10
 # # # # # set pagination on
 # # # # # set substitute-path /home/dponyatov/flic/ ./
-# # # # # set substitute-path /home/pere/src/newlib-salsa /home/dponyatov/stm32/ref/newlib-salsa
+# # # # # set substitute-path /home/pere/src/newlib-salsa /usr/src/newlib/newlib-salsa
 # # # 
 # # # # set $gp = GPIO_InitStruct
 # # # # p $gp
